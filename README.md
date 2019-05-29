@@ -7,7 +7,6 @@
 https://trello.com/b/NGScU55N/arenadefense
 
 ##### The game so far:
-
  - Top-down wave defense
  - Classes based on studies in AE&I
  - Enemies based on problems in a study
