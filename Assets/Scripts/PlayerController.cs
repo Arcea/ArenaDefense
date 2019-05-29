@@ -17,22 +17,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Basic movement code; should be updated for smoother movement
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        // Update is called once per frame
+        void Update()
         {
-            targetPos = new Vector2(transform.position.x, transform.position.y + YIncrement);
-        } else if ( Input.GetKey(KeyCode.DownArrow))
-        {
-            targetPos = new Vector2(transform.position.x, transform.position.y - YIncrement);
-        } else if ( Input.GetKey(KeyCode.LeftArrow))
-        {
-            targetPos = new Vector2(transform.position.x - YIncrement, transform.position.y);
-        }
-         else if ( Input.GetKey(KeyCode.RightArrow))
-        {
-            targetPos = new Vector2(transform.position.x + YIncrement, transform.position.y);
+            Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+            transform.position += move * speed * Time.deltaTime;
         }
     }
 }
