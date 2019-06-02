@@ -12766,6 +12766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: player-temp
       objectReference: {fileID: 0}
+    - target: {fileID: 8870295005280989254, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8870295005280989252, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12820,6 +12825,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870295005280989251, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+        type: 3}
+      propertyPath: verticalCtrl
+      value: Vertical_P1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5fccf4ad0c624a458f7269e3fbdb1e1, type: 3}
