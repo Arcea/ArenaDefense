@@ -7,6 +7,7 @@ public class ControlsController : MonoBehaviour
 {
 
     public GameObject player;
+    GameObject instantiatePlayer;
     private int playerCount = 0;
     
     // Start is called before the first frame update
@@ -30,27 +31,29 @@ public class ControlsController : MonoBehaviour
             for(int i =0; i < temp.Length; ++i)
             {
                 //Check if the string is empty or not
-                if(!string.IsNullOrEmpty(temp[i]))
+                if(!string.IsNullOrEmpty(temp[i]) && i >= playerCount)
                 {
                     //Not empty, controller temp[i] is connected
                     Debug.Log("Controller " + i + " is connected using: " + temp[i]);
-                    if(i > playerCount){
-                        Debug.Log("Adding player...");
-                        Debug.Log("Controller Length: " + temp.Length);
-                        Debug.Log("PlayerCount " +playerCount);
-                        Instantiate(player, transform.position, Quaternion.identity);
+                        //Debug.Log("Controller Length: " + temp.Length);
+                        //Debug.Log("PlayerCount " +playerCount);
+                        //Instantiate another gameobject here, since we cannot destroy the prefab. 
+                        instantiatePlayer = Instantiate(player, transform.position, Quaternion.identity);
                         playerCount++;
-                    }
-                    //
+
+                } else if(string.IsNullOrEmpty(temp[i]) && i < playerCount) { //Checking if playercount is higher then controllers. Then we remove a player
+                    //Debug.Log(i);
+                    //Debug.Log("PlayerCount: " + playerCount);
+                    playerCount--;
+                    Destroy(instantiatePlayer);
                 }
                 else
                 {
                     //If it is empty, controller i is disconnected
                     //where i indicates the controller number
 
-                    //TODO: Bogs down console, clean this up
+                    //Only use this for debug purposes
                     //Debug.Log("Controller: " + i + " is disconnected.");
-        
                 }
             }
         }
