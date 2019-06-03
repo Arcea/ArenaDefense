@@ -2325,10 +2325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dbdff5adeff0d42882b852b9516f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1Join: Fire1_P1
-  Player2Join: Fire1_P2
-  Player3Join: Fire1_P3
-  Player4Join: Fire1_P4
+  Player1Join: ButtonA_P1
+  Player2Join: ButtonA_P2
+  Player3Join: ButtonA_P3
+  Player4Join: ButtonA_P4
   gameStart: Start
   Player1Text: {fileID: 2127981413}
   Player2Text: {fileID: 1776197698}

@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
     public string verticalRotation = "VerticalRotation_P1";
     public string horizontalRotation = "HorizontalRotation_P1";
 
-    //Fire controls, added for compleness sake. Might need to be moved
-    public string PrimaryFire = "Fire1_P1";
+    //Fire controls, added for completness sake. Might need to be moved
+    public string PrimaryFire = "ButtonA_P1";
     public string SpecialPower = "Fire2_P1";
 
     public GameObject weapon;
@@ -38,18 +38,19 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         if (Input.GetButtonDown(PrimaryFire)){
-        float primaryAttack = Input.GetAxis("Trigger_P1");
-
-        if(primaryAttack != 0){
-            Debug.Log("Primary Fire");
-            Shoot();
+            float primaryAttack = Input.GetAxis("ButtonA_P1"); //Temp changed from Trigger_P1
+        
+            if(primaryAttack != 0){
+                Debug.Log("Primary Fire");
+                Shoot();
+            }
         }
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
         //}
     }
 
-    private void Shoot()
+    void Shoot()
     {
         weapon.GetComponent<PistolController>().Fire();
     }

@@ -98,7 +98,7 @@ MonoBehaviour:
   horizontal: Horizontal_P1
   verticalRotation: VerticalRotation_P1
   horizontalRotation: HorizontalRotation_P1
-  PrimaryFire: Fire1_P1
+  PrimaryFire: ButtonA_P1
   SpecialPower: Fire2_P1
   weapon: {fileID: 0}
 --- !u!1001 &2218565758399039898

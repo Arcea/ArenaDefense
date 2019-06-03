@@ -6,10 +6,10 @@ using UnityEngine.UI;
 //TODO: Split this controller
 public class CharSelectController : MonoBehaviour
 {
-    public string Player1Join = "Fire1_P1";
-    public string Player2Join = "Fire1_P2";
-    public string Player3Join = "Fire1_P3";
-    public string Player4Join = "Fire1_P4";
+    public string Player1Join = "ButtonA_P1";
+    public string Player2Join = "ButtonA_P2";
+    public string Player3Join = "ButtonA_P3";
+    public string Player4Join = "ButtonA_P4";
     public string gameStart = "Start";
 
 //Sidenote, should clean this up. Perhaps later
