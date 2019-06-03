@@ -5,10 +5,8 @@ using UnityEngine.UIElements;
 
 public class PistolBulletController : MonoBehaviour
 {
-    public float zAxis;
-    private float speed = 0.4f;
+    private float speed = 8f;
 
-    public Vector2 bulletDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +16,6 @@ public class PistolBulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += transform.forward * Time.deltaTime * speed;
+        gameObject.transform.position += transform.up * Time.deltaTime * speed;
     }
 }
