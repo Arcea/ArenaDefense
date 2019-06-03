@@ -6,11 +6,12 @@ using UnityEngine.UIElements;
 public class PistolBulletController : MonoBehaviour
 {
     private float speed = 8f;
+    public float lifetime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Destroy(gameObject, lifetime);
     }
 
     // Update is called once per frame
