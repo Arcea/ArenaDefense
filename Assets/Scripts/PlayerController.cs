@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private NavMeshAgent agent;
-    public string vertical = "Vertical_P1";
-    public string horizontal = "Horizontal_P1";
+    public string vertical;
+    public string horizontal;
 
     //Fire controls, added for compleness sake. Might need to be moved
     public string PrimaryFire = "Fire1_P1";
