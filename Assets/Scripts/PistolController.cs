@@ -8,8 +8,8 @@ public class PistolController : MonoBehaviour
     public GameObject bullet;
     public GameObject player;
     
-
     public int refireTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,6 @@ public class PistolController : MonoBehaviour
     public void Fire()
     {
         GameObject newBullet = Instantiate(bullet, new Vector3( player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
-       // newBullet.GetComponent<PistolBulletController>().bulletDirection = new Vector2((float) Mathf.Cos(player));
+        //newBullet.GetComponent<PistolBulletController>().bulletDirection = new Vector2((float) Mathf.Cos(player));
     }
 }

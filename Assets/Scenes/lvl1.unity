@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10684616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 834143637428707401, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8870295003226778887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186798639
 GameObject:
   m_ObjectHideFlags: 0
@@ -11106,6 +11112,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &974576384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8870295005280989254, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8870295003226778887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1886684716
 GameObject:
   m_ObjectHideFlags: 0
@@ -11436,6 +11448,27 @@ PrefabInstance:
         type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 1194452828}
+      objectReference: {fileID: 3148458470771583347, guid: 9bbac0b2871c7b24ba6d37ff5b350c18,
+        type: 3}
+    - target: {fileID: 6485742430857351308, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 974576384}
+    - target: {fileID: 6485742430857351308, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+        type: 3}
+      propertyPath: refireTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870295005280989251, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 10684616}
+    - target: {fileID: 8870295005280989251, guid: d5fccf4ad0c624a458f7269e3fbdb1e1,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5fccf4ad0c624a458f7269e3fbdb1e1, type: 3}

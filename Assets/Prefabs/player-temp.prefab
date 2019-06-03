@@ -100,7 +100,7 @@ MonoBehaviour:
   horizontalRotation: HorizontalRotation_P1
   PrimaryFire: Fire1_P1
   SpecialPower: Fire2_P1
-  weapon: {fileID: 834143637428707401}
+  weapon: {fileID: 0}
 --- !u!1001 &2218565758399039898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,12 +185,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 065a63abe4ab07344888a02d6d398789, type: 3}
---- !u!1 &834143637428707401 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1538706004914432467, guid: 065a63abe4ab07344888a02d6d398789,
-    type: 3}
-  m_PrefabInstance: {fileID: 2218565758399039898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4967577700925217088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6501381829591093466, guid: 065a63abe4ab07344888a02d6d398789,

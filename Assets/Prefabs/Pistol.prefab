@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6657061e1a6d94c4aaf87db8536d38f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  player: {fileID: 0}
+  refireTime: 0
