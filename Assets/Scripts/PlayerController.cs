@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(Input.GetAxis(horizontal), Input.GetAxis(vertical), 0);
-        //Vector3 lookDirection = new Vector3(Input.GetAxis(horizontalRotation),0, Input.GetAxis(verticalRotation) );
         transform.position += move * speed * Time.deltaTime;
 
         float angle = Mathf.Atan2(Input.GetAxis(horizontalRotation), Input.GetAxis(verticalRotation)) * Mathf.Rad2Deg;
