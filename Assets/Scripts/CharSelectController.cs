@@ -17,7 +17,8 @@ public class CharSelectController : MonoBehaviour
     public Text Player4Text;
 
     //Controllers
-    private int[] Controllers = new int[4];
+    private bool Controller1 = false;
+    private bool Controller2 = false;
 
     //Player slots
     private bool Player1Slot = false;
@@ -26,11 +27,6 @@ public class CharSelectController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            Debug.Log(Input.GetJoystickNames()[i] + " is moved " + i);
-            Controllers[i] = i;
-        }
     }
 
     // Update is called once per frame
@@ -50,18 +46,16 @@ public class CharSelectController : MonoBehaviour
         //         Debug.Log(Input.GetJoystickNames()[i] + " is moved");
         //     }
         // }
+        
 
-        if(Input.GetButtonDown(Player1Join) || Input.GetButtonDown(Player2Join)){
-            if(Player1Slot == false){
-                Debug.Log("Player 1 filled");
-                Debug.Log(Input.GetJoystickNames() + " is moved");
-                Player1Slot = true;
-            }else if(Player2Slot == false){
-                Debug.Log("Player 2 filled");
-                Player2Slot = true;
-            }
-            Debug.Log(Input.GetButtonDown(Player1Join));
-            Debug.Log(Input.GetButtonDown(Player2Join));
+        if(Input.GetButtonDown(Player1Join) || !Controller1)
+        {
+            JoinPlayer();
+            Controller1 = true;
+        } else if (Input.GetButton(Player2Join) || !Controller2)
+        {
+            JoinPlayer();
+            Controller2 = true;
         }
 
         // if(Input.GetButtonDown(Player1Join)){
@@ -80,5 +74,22 @@ public class CharSelectController : MonoBehaviour
         //     Debug.Log("Player 4 Joined");
         //     Player4Text.text = "Player 4 Joined!";
         // }
+    }
+
+    void JoinPlayer()
+    {
+        if (Player1Slot == false)
+        {
+            Debug.Log("Player 1 filled");
+            Debug.Log(Input.GetJoystickNames() + " is moved");
+            Player1Slot = true;
+        }
+        else if (Player2Slot == false)
+        {
+            Debug.Log("Player 2 filled");
+            Player2Slot = true;
+        }
+        Debug.Log(Input.GetButtonDown(Player1Join));
+        Debug.Log(Input.GetButtonDown(Player2Join));
     }
 }
