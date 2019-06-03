@@ -28,12 +28,14 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(Input.GetAxis(horizontal), Input.GetAxis(vertical), 0);
         transform.position += move * speed * Time.deltaTime;
 
-        if(Input.GetButtonDown(PrimaryFire)){
+        float primaryAttack = Input.GetAxis("Trigger_P1");
+
+        if(primaryAttack != 0){
             Debug.Log("Primary Fire");
         }
-        if(Input.GetButtonDown(SpecialPower)){
-            Debug.Log("UNLIMITED POWAH");
-        }
+        //if(Input.GetButtonDown(SpecialPower)){
+        //    Debug.Log("UNLIMITED POWAH");
+        //}
     }
 
 }

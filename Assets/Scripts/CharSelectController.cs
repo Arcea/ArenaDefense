@@ -25,11 +25,11 @@ public class CharSelectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(8))
-        {
-            Debug.Log("Starting game..");
-            //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
-        }
+        //if (Input.GetMouseButtonDown(8))
+        //{
+        //    Debug.Log("Starting game..");
+        //    //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        //}
 
         if(Input.GetButtonDown(Player1Join)){
             Debug.Log("Player 1 Joined");
