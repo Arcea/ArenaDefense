@@ -38,12 +38,15 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         if (Input.GetButtonDown(PrimaryFire)){
+        float primaryAttack = Input.GetAxis("Trigger_P1");
+
+        if(primaryAttack != 0){
             Debug.Log("Primary Fire");
             Shoot();
         }
-        if(Input.GetButtonDown(SpecialPower)){
-            Debug.Log("UNLIMITED POWAH");
-        }
+        //if(Input.GetButtonDown(SpecialPower)){
+        //    Debug.Log("UNLIMITED POWAH");
+        //}
     }
 
     private void Shoot()
