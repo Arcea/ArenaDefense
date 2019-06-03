@@ -1,7 +1,7 @@
 ### ArenaDefense
 
 
-#### Unity version used: 2019.2.0b2
+#### Unity version used: 2019.1.4f1
 
 #### Trello link
 https://trello.com/b/NGScU55N/arenadefense
