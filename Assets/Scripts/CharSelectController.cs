@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//TODO: Split this controller
 public class CharSelectController : MonoBehaviour
 {
     public string Player1Join = "Fire1_P1";
@@ -30,10 +31,11 @@ public class CharSelectController : MonoBehaviour
     private bool Player2Slot = false;
     private bool Player3Slot = false;
     private bool Player4Slot = false;    
-    
+
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
