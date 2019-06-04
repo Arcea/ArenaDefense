@@ -221,7 +221,7 @@ InputManager:
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 0
+    gravity: 1
     dead: 0.19
     sensitivity: 1
     snap: 0
@@ -237,7 +237,7 @@ InputManager:
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 0
+    gravity: 1
     dead: 0.19
     sensitivity: 1
     snap: 0
@@ -401,7 +401,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1.5
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 3
     joyNum: 1
@@ -417,7 +417,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1.5
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 4
     joyNum: 1
@@ -437,3 +437,51 @@ InputManager:
     type: 2
     axis: 9
     joyNum: 1
+  - serializedVersion: 3
+    m_Name: Trigger_P2
+    descriptiveName: Trigger
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.2
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: HorizontalRotation_P2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.2
+    sensitivity: 1.5
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 9
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: VerticalRotation_P2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.2
+    sensitivity: 1.5
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 4
+    joyNum: 2

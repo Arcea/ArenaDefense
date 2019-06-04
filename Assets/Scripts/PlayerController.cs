@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public string horizontal = "Horizontal_P1";
     public string verticalRotation = "VerticalRotation_P1";
     public string horizontalRotation = "HorizontalRotation_P1";
+    public string triggerAxis = "Trigger_P1";
 
     //Fire controls, added for completness sake. Might need to be moved
     public string PrimaryFire = "ButtonA_P1";
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(Input.GetAxis(horizontalRotation), Input.GetAxis(verticalRotation)) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        float trigger = Input.GetAxis("Trigger_P1");
+        float trigger = Input.GetAxis(triggerAxis);
 
         if (trigger != 0)
         {
