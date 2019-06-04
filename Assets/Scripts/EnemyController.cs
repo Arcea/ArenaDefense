@@ -51,4 +51,9 @@ public class EnemyController : MonoBehaviour
 
         agent.SetDestination(closestTarget.transform.position);
     }
+
+    public void TakeDamage(int damage)
+    {
+        Destroy(gameObject);
+    }
 }

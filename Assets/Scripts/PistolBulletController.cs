@@ -19,4 +19,10 @@ public class PistolBulletController : MonoBehaviour
     {
         gameObject.transform.position += transform.up * Time.deltaTime * speed;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        other.gameObject.GetComponent<EnemyController>().TakeDamage(10);
+        Destroy(gameObject);
+    }
 }
