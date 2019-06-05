@@ -35,7 +35,11 @@ public class PlayerController : MonoBehaviour
         transform.position += move * speed * Time.deltaTime;
 
         float angle = Mathf.Atan2(Input.GetAxis(horizontalRotation), Input.GetAxis(verticalRotation)) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        if (angle != 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+
 
         if (Input.GetButtonDown(PrimaryFire)){
             float primaryAttack = Input.GetAxis("ButtonA_P1"); //Temp changed from Trigger_P1
