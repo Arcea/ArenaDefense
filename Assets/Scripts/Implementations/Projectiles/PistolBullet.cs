@@ -9,12 +9,17 @@ public class PistolBullet : Projectile
         DamageType = DamageType.Bleeding;
         //To be changed later.
         Damage = 5;
-        Speed = 2f;
+        Speed = 100f;
     }
 
     //TODO: Implement this.
     public override void OnCollisionEnter2D(Collision2D collision)
     {
         throw new System.NotImplementedException();
+    }
+
+    void Update()
+    {
+        gameObject.transform.position += transform.up * Time.deltaTime * Speed;
     }
 }
