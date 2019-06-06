@@ -37,12 +37,11 @@ public class PlayerAssigner : MonoBehaviour
 
     void AssignController(int controller)
     {
-        Debug.Log(controllers.ToString());
         for (int i = 0; i < players.Length; i++)
         {
             if(players[i].GetController() == -1)
             {
-                players[i].SetController(i);    
+                players[i].SetController(controller);    
                 controllers.Add(controller);
                 break;
             }
