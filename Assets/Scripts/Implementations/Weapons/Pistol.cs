@@ -6,21 +6,31 @@ public class Pistol : BallisticWeapon
 {
     public GameObject pistolBullet;
     public GameObject player;
-
+    private bool allowFire = true;
     public override void Fire()
     {
-        this.ClipSize = 10;
-        if (this.ClipSize > 0)
+        StartCoroutine(FireWeapon());
+    }
+
+    IEnumerator FireWeapon()
+    {
+        if (ClipSize > 0 && allowFire)
         {
-            Debug.Log("x" + player.transform.position.x);
-            Debug.Log("y" + player.transform.position.y);
+            allowFire = false;
             GameObject newBullet = Instantiate(pistolBullet, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             ClipSize--;
+            yield return new WaitForSeconds(1f);
+            allowFire = true;
         }
     }
 
     public override void Reload()
     {
-        throw new System.NotImplementedException();
+        Invoke("ReloadWeapon", 2f);
+    }
+
+    private void ReloadWeapon()
+    {
+        ClipSize = 10;
     }
 }

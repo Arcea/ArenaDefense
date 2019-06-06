@@ -10,5 +10,5 @@ public abstract class Projectile : MonoBehaviour
     public int Damage { get; set; }
     public float Speed { get; set; }
 
-    public abstract void OnCollisionEnter2D(Collision2D collision);
+    public abstract void OnTriggerEnter2D(Collider2D collision);
 }

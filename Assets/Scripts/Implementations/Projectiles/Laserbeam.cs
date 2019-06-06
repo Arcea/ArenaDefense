@@ -12,8 +12,7 @@ public class Laserbeam : Projectile
         Speed = 2.5f;
     }
 
-    //TODO: Implement this.
-    public override void OnCollisionEnter2D(Collision2D collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
         throw new System.NotImplementedException();
     }
