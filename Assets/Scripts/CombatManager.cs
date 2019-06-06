@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    private int health;
+    public int health = 100;
     // Start is called before the first frame update
     void Start()
     {
-        health = 10000;
     }
 
     // Update is called once per frame
