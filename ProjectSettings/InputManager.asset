@@ -485,3 +485,19 @@ InputManager:
     type: 2
     axis: 4
     joyNum: 2
+  - serializedVersion: 3
+    m_Name: ButtonX_P1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: joystick 1 button 3
+    gravity: 1
+    dead: 0.2
+    sensitivity: 1.5
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1

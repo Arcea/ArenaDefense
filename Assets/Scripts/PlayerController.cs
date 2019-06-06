@@ -13,8 +13,12 @@ public class PlayerController : MonoBehaviour
     public string horizontalRotation = "HorizontalRotation_P1";
     public string triggerAxis = "Trigger_P1";
 
+    public GameObject placeable;
+
+    private bool buttonXPressing;
+
     //Fire controls, added for completness sake. Might need to be moved
-    public string PrimaryFire = "ButtonA_P1";
+    public string PrimaryFire = "ButtonA";
     public string SpecialPower = "Fire2_P1";
 
     public GameObject weapon;
@@ -40,14 +44,40 @@ public class PlayerController : MonoBehaviour
 
         float trigger = Input.GetAxis(triggerAxis);
 
-        if (trigger != 0)
-        {
-            Debug.Log("Primary Fire");
-            Shoot();
-        }
-        //if(Input.GetButtonDown(SpecialPower)){
-        //    Debug.Log("UNLIMITED POWAH");
+        //if (trigger != 0)
+        //{
+        //    Debug.Log("Primary Fire");
+        //    Shoot();
         //}
+
+        if (Input.GetButtonDown(PrimaryFire))
+        {
+            Debug.Log("pew");
+        }
+
+        if(Input.GetButtonDown(SpecialPower))
+        {
+            Vector3 playerPos = gameObject.transform.position;
+            Vector3 playerDirection = gameObject.transform.forward;
+            Quaternion playerRotation = gameObject.transform.rotation;
+            float spawnDistance = 100;
+
+            Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+
+            Debug.Log("SecondaryPower");
+            Instantiate(placeable, spawnPos, playerRotation);
+            buttonXPressing = true;
+        }
+
+        if (Input.GetButtonUp(SpecialPower))
+        {
+            buttonXPressing = false;
+        }
+
+        if (buttonXPressing)
+        {
+            Debug.Log("Holding");
+        }
     }
 
     void Shoot()
