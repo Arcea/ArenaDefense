@@ -17,11 +17,14 @@ public class PlayerController : MonoBehaviour
     public string PrimaryFire = "ButtonA_P1";
     public string SpecialPower = "Fire2_P1";
 
-    public GameObject weapon;
+    public Pistol pistol;
+    
+
  
     // Start is called before the first frame update
     void Start()
     {
+        pistol.ClipSize = 10;
         //agent = GetComponent<NavMeshAgent>();
         //agent.updateRotation = false;
         //agent.updateUpAxis = false;
@@ -41,6 +44,10 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
+        if (Input.GetButtonDown(PrimaryFire))
+        {
+            pistol.Reload();
+        }
 
         float trigger = Input.GetAxis(triggerAxis);
 
@@ -56,7 +63,8 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        weapon.GetComponent<PistolController>().Fire();
+        
+        pistol.Fire();
     }
 
 }

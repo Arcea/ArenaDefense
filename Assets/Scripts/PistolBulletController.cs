@@ -22,7 +22,5 @@ public class PistolBulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        other.gameObject.GetComponent<EnemyController>().TakeDamage(10);
-        Destroy(gameObject);
     }
 }
