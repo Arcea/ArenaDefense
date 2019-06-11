@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     //Fire controls, added for completness sake. Might need to be moved
     public string PrimaryFire = "ButtonA_P1";
     public string SpecialPower = "Fire2_P1";
+    public float trigger;
 
-    public Nailgun nailGun;
-    public BallisticWeapon weapon;
+    public Weapon weapon;
     
 
  
@@ -51,12 +51,16 @@ public class PlayerController : MonoBehaviour
             weapon.Reload();
         }
 
-        float trigger = Input.GetAxis(triggerAxis);
+        trigger = Input.GetAxis(triggerAxis);
 
         if (trigger != 0)
         {
             Debug.Log("Primary Fire");
             Shoot();
+        }
+        else
+        {
+            weapon.StopFire();
         }
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
@@ -65,7 +69,6 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        nailGun.Fire();
         weapon.Fire();
     }
 
