@@ -11,22 +11,33 @@ public class Player : MonoBehaviour
     public Text text;
 
     // Private
-    private BaseCharacter character;
     private int controller = -1;
     private PlayerInput input;
     private bool ready = false;
+    private CharacterScript character;
 
 
     // Start is called before the first frame update
     void Start()
     {
         input = GetComponent<PlayerInput>();
+        character = GetComponent<CharacterScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (controller != -1 && Input.GetButtonDown("ButtonA_P" + controller))
+        {
+            ready = true;
+            character.ToggleReady(true);
+        }
 
+        if (controller != -1 && Input.GetButtonDown("ButtonB_P" + controller))
+        {
+            ready = false;
+            character.ToggleReady(false);
+        }
     }
 
     public void SetController(int controller)
@@ -54,7 +65,6 @@ public class Player : MonoBehaviour
 
     public bool PressedStart()
     {
-        if (controller == -1) return false;
         if(Input.GetButtonDown("Start_P" + controller))
         {
             return true;

@@ -7,15 +7,16 @@ public class CharacterScript : MonoBehaviour
 {
     public Image image;
     public Text text;
+    public Image checkMark;
 
     private List<Character> characters;
-
     private Character currentCharacter;
 
     // Start is called before the first frame update
     void Start()
     {
         image.enabled = false;
+        checkMark.enabled = false;
         characters = new List<Character>()
         {
             new Character("Programmer", "Informatica"),
@@ -44,28 +45,29 @@ public class CharacterScript : MonoBehaviour
         return currentCharacter;
     }
 
+    public void ToggleReady(bool ready)
+    {
+        checkMark.enabled = ready;
+    }
+
     public void NextSlide()
     {
-        int currentIndex = characters.FindIndex(c => c.text == currentCharacter.text);
+        if (checkMark.enabled) return;
 
-        Debug.Log(currentIndex);
-        Debug.Log(currentIndex + 1);
+        int currentIndex = characters.FindIndex(c => c.text == currentCharacter.text);
         if(currentIndex + 1 < characters.Count)
         {
-            Debug.Log("Next slide");
             currentCharacter = characters[currentIndex + 1];
         }
     }
 
     public void PreviousSlide()
     {
-        int currentIndex = characters.FindIndex(c => c.text == currentCharacter.text);
+        if (checkMark.enabled) return;
 
-        Debug.Log(currentIndex);
-        Debug.Log(currentIndex - 1);
+        int currentIndex = characters.FindIndex(c => c.text == currentCharacter.text);
         if (currentIndex - 1 >= 0)
         {
-            Debug.Log("Previous slide");
             currentCharacter = characters[currentIndex - 1];
         }
     }
