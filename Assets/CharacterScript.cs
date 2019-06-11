@@ -15,13 +15,14 @@ public class CharacterScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        image.enabled = false;
         characters = new List<Character>()
         {
-            new Character("url", "informatica"),
-            new Character("url", "technische informatica"),
+            new Character("Programmer", "Informatica"),
+            new Character("Mechatronica", "Mechatronica"),
         };
 
-        currentCharacter = characters[0];
+        currentCharacter = new Character("nope", "Press A to join");
     }
 
     // Update is called once per frame
@@ -29,6 +30,18 @@ public class CharacterScript : MonoBehaviour
     {
         image.sprite = currentCharacter.image;
         text.text = currentCharacter.text;
+    }
+
+    public void Init()
+    {
+        currentCharacter = characters[0];
+        image.enabled = true;
+        image.color = new Color(255, 255, 255, 1);
+    }
+
+    public Character GetCharacter()
+    {
+        return currentCharacter;
     }
 
     public void NextSlide()
