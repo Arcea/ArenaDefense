@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public string SpecialPower = "Fire2_P1";
 
     public Nailgun nailGun;
+    public BallisticWeapon weapon;
     
 
  
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown(PrimaryFire))
         {
             nailGun.Reload();
+            weapon.Reload();
         }
 
         float trigger = Input.GetAxis(triggerAxis);
@@ -63,8 +65,8 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-
         nailGun.Fire();
+        weapon.Fire();
     }
 
 }

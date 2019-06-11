@@ -7,9 +7,16 @@ public class Pistol : BallisticWeapon
     public GameObject pistolBullet;
     public GameObject player;
     private bool allowFire = true;
+
     public override void Fire()
     {
         StartCoroutine(FireWeapon());
+    }
+
+    void Start()
+    {
+        this.ClipSize = 10;
+        this.FireRate = 1;
     }
 
     IEnumerator FireWeapon()
@@ -19,7 +26,7 @@ public class Pistol : BallisticWeapon
             allowFire = false;
             GameObject newBullet = Instantiate(pistolBullet, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             ClipSize--;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(FireRate);
             allowFire = true;
         }
     }
