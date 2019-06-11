@@ -15,7 +15,6 @@ public class SpawnController : MonoBehaviour
         if (timeBetween <= 0)
         {
             Instantiate(enemy, transform.position, Quaternion.identity);
-            timeBetween = 1;
         }
         else
         {
