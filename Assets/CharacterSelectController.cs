@@ -34,7 +34,10 @@ public class CharacterSelectController : MonoBehaviour
         {
             foreach (Player player in players)
             {
-                if(player.PressedStart()) UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+                if (player.PressedStart()) {
+                    Assets.SceneTransfer.players = players;
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+                }
             }
         }
     }
