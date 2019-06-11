@@ -5,6 +5,4 @@ public abstract class BallisticWeapon : Weapon
 {
     public int ClipSize { get; set; }
     public float FireRate { get; set; }
-
-    public abstract void Reload();
 }

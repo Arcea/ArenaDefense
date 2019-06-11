@@ -4,16 +4,38 @@ using UnityEngine;
 
 public class Laserbeam : Projectile
 {
+    private float lifeTime = 1f;
+    public PlayerController player;
+
+
     public Laserbeam()
     {
         DamageType = DamageType.Piercing;
         //To be changed later.
-        Damage = 7;
-        Speed = 2.5f;
+        Damage = 1;
+        Speed = 75f;
+    }
+
+    void Start()
+    {
+        transform.localScale += new Vector3(0f, 10f, 0f);
+    }
+
+    void Update()
+    {
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            CombatManager temp = collision.gameObject.GetComponent<CombatManager>();
+            temp.TakeDamage(Damage);
+        }
     }
 }
