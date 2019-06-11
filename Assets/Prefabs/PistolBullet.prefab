@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f08cbbb505cf9f4e8deea49cfb7b9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bleed: {fileID: 8825707965848860905, guid: 141c9523c8fa50143a3df6890cd94a2e, type: 3}
+  bleed: {fileID: 8454717690182167373, guid: 141c9523c8fa50143a3df6890cd94a2e, type: 3}
 --- !u!58 &1718872781654268773
 CircleCollider2D:
   m_ObjectHideFlags: 0

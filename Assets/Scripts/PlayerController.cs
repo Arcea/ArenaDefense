@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nailGun.ClipSize = 5;
         //agent = GetComponent<NavMeshAgent>();
         //agent.updateRotation = false;
         //agent.updateUpAxis = false;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(PrimaryFire))
         {
+            nailGun.Reload();
             weapon.Reload();
         }
 
