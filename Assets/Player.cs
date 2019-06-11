@@ -43,7 +43,8 @@ public class Player : MonoBehaviour
 
     void UpdateText()
     {
-        text.text = "Player " + playerNumber + " Joined";
+        CharacterScript script = GetComponent<CharacterScript>();
+        script.Init();
     }
 
     public bool IsReady()
