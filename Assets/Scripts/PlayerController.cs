@@ -11,20 +11,20 @@ public class PlayerController : MonoBehaviour
     public string horizontal = "Horizontal_P1";
     public string verticalRotation = "VerticalRotation_P1";
     public string horizontalRotation = "HorizontalRotation_P1";
-    public string triggerAxis = "Trigger_P1";
+    public string triggerAxis = "RightTrigger_P1";
 
     //Fire controls, added for completness sake. Might need to be moved
     public string PrimaryFire = "ButtonA_P1";
     public string SpecialPower = "Fire2_P1";
+    public float trigger;
 
-    public Pistol pistol;
+    public Weapon weapon;
     
 
  
     // Start is called before the first frame update
     void Start()
     {
-        pistol.ClipSize = 10;
         //agent = GetComponent<NavMeshAgent>();
         //agent.updateRotation = false;
         //agent.updateUpAxis = false;
@@ -46,15 +46,20 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(PrimaryFire))
         {
-            pistol.Reload();
+            weapon.Reload();
         }
 
-        float trigger = Input.GetAxis(triggerAxis);
+        trigger = Input.GetAxis(triggerAxis);
+        
 
         if (trigger != 0)
         {
             Debug.Log("Primary Fire");
             Shoot();
+        }
+        else
+        {
+            weapon.StopFire();
         }
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
@@ -63,8 +68,7 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        
-        pistol.Fire();
+        weapon.Fire();
     }
 
 }
