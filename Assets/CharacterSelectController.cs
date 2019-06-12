@@ -43,7 +43,7 @@ public class CharacterSelectController : MonoBehaviour
                 if (player.PressedStart())
                 {
                     Assets.SceneTransfer.players = players;
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(1, UnityEngine.SceneManagement.LoadSceneMode.Single);
                 }
             }
         }
