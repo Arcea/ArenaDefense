@@ -8,9 +8,6 @@ public class BleedTimedEffect : TimedEffect
 
     protected override void ApplyEffect()
     {
-        Debug.Log(this.duration + "duration");
-        Debug.Log(this.startTime + "Starttime");
-        Debug.Log(this.repeatTime + "Repeatime");
         gameObject.GetComponent<CombatManager>().TakeDamage(damage);
         Debug.Log("I am bleeding now");
     }

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Laserbeam : Projectile
 {
-    private float lifeTime = 1f;
-
-
     public Laserbeam()
     {
         DamageType = DamageType.Piercing;
