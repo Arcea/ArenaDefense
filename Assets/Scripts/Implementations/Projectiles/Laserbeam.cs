@@ -5,7 +5,6 @@ using UnityEngine;
 public class Laserbeam : Projectile
 {
     private float lifeTime = 1f;
-    public PlayerController player;
 
 
     public Laserbeam()

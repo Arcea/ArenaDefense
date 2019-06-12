@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
         }
 
         trigger = Input.GetAxis(triggerAxis);
+        
 
         if (trigger != 0)
         {

@@ -47,4 +47,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nail: {fileID: 37120315946179282, guid: 32419e872809dec4487cf24114f43cfd, type: 3}
-  player: {fileID: 0}
+  player: {fileID: -6069821042123877653, guid: 7c91f5e14d29224419f08e98c02e6626, type: 3}
