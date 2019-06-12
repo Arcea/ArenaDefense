@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public string verticalRotation = "VerticalRotation_P1";
     public string horizontalRotation = "HorizontalRotation_P1";
     public string triggerAxis = "RightTrigger_P1";
+    public string activateAbility = "RightBumper_P1";
+    public string activateUltimate = "LeftBumper_P1";
 
     //Fire controls, added for completness sake. Might need to be moved
     public string PrimaryFire = "ButtonA_P1";
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public float trigger;
 
     public Weapon weapon;
+    public Power ability;
+    public Power ultimate;
 
     private bool paused = false;
     private Canvas menu;
@@ -71,6 +75,16 @@ public class PlayerController : MonoBehaviour
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
         //}
+
+        if (Input.GetButtonDown(activateAbility))
+        {
+            ability.Activate();
+        }
+
+        if (Input.GetButtonDown(activateUltimate))
+        {
+            ultimate.Activate();
+        }
     }
 
     void Shoot()

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DroneShield : Power
 {
+    public GameObject player;
+    public GameObject sprite;
+
     public DroneShield()
     {
         this.Type = PowerType.Ultimate;
@@ -12,6 +15,17 @@ public class DroneShield : Power
 
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(ActivateUltimate());
+    }
+
+    IEnumerator ActivateUltimate()
+    {
+        if (IsReady)
+        {
+            IsReady = false;
+            //Do Ultimate
+            yield return new WaitForSeconds(Cooldown);
+            IsReady = true;
+        }
     }
 }
