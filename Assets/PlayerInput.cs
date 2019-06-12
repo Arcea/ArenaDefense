@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public float coolDownUntilNextSwitch = 0.2f;
+
     private int inputNumber = -1;
     private Player player;
+    private bool canSwitchCharacter = true;
 
     // input strings
 
@@ -20,15 +23,40 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         if (inputNumber == -1) return;
-        if(Input.GetAxis("Horizontal_P" + inputNumber) > 0)
+        if (Input.GetAxis("Horizontal_P" + inputNumber) > 0)
         {
             // right
-            GetComponentInChildren<CharacterScript>().NextSlide();
+            StartCoroutine(SwitchTargetRoutine(coolDownUntilNextSwitch, 1));
         }
-        if (Input.GetAxis("Horizontal_P" + inputNumber) < 0)
+        else if (Input.GetAxis("Horizontal_P" + inputNumber) < 0)
         {
             // left
-            GetComponentInChildren<CharacterScript>().PreviousSlide();
+            StartCoroutine(SwitchTargetRoutine(coolDownUntilNextSwitch, -1));
+            
+        } 
+    }
+
+    IEnumerator SwitchTargetRoutine(float duration, int direction)
+    {
+        if (canSwitchCharacter)
+        {
+            canSwitchCharacter = false;
+
+            if (direction > 0)
+            {
+                GetComponentInChildren<CharacterScript>().NextSlide();
+            }
+            else
+            {
+                GetComponentInChildren<CharacterScript>().PreviousSlide();
+            }
+
+            yield return new WaitForSeconds(duration);
+            canSwitchCharacter = true;
+        }
+        else
+        {
+            yield return new WaitForSeconds(0f);
         }
     }
 

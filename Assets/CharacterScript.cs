@@ -7,6 +7,7 @@ public class CharacterScript : MonoBehaviour
 {
     public Image image;
     public Text text;
+    public Text subText;
     public Image checkMark;
 
     private List<Character> characters;
@@ -19,11 +20,13 @@ public class CharacterScript : MonoBehaviour
         checkMark.enabled = false;
         characters = new List<Character>()
         {
-            new Character("Programmer", "Informatica"),
-            new Character("Mechatronica", "Mechatronica"),
+            new Character("Programmer", "Sloth", "Informatica"),
+            new Character("Mechatronica", "Parody", "Mechatronica"),
+            new Character("ElectroTechniek", "Nikola", "Electro Techniek"),
+            new Character("TechnischeInformatica", "Cipher", "Technische Informatica")
         };
 
-        currentCharacter = new Character("nope", "Press A to join");
+        currentCharacter = new Character("Programmer", "Press A to join", "");
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class CharacterScript : MonoBehaviour
     {
         image.sprite = currentCharacter.image;
         text.text = currentCharacter.text;
+        subText.text = currentCharacter.subText;
     }
 
     public void Init()
@@ -59,6 +63,10 @@ public class CharacterScript : MonoBehaviour
         {
             currentCharacter = characters[currentIndex + 1];
         }
+        else
+        {
+            currentCharacter = characters[0];
+        }
     }
 
     public void PreviousSlide()
@@ -70,6 +78,11 @@ public class CharacterScript : MonoBehaviour
         {
             currentCharacter = characters[currentIndex - 1];
         }
+        else
+        {
+            currentCharacter = characters[characters.Count - 1];
+        }
+
     }
 }
 
@@ -77,10 +90,12 @@ public struct Character
 {
     public Sprite image;
     public string text;
+    public string subText;
 
-    public Character(string image, string text)
+    public Character(string image, string text, string subText)
     {
         this.image = Resources.Load<Sprite>(image);
         this.text = text;
+        this.subText = subText;
     }
 }
