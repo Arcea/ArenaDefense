@@ -21,11 +21,11 @@ public class Pistol : BallisticWeapon
 
     IEnumerator FireWeapon()
     {
-        if (MaxClipSize > 0 && allowFire)
+        if (CurrentClipSize > 0 && allowFire)
         {
             allowFire = false;
             GameObject newBullet = Instantiate(pistolBullet, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
-            MaxClipSize--;
+            CurrentClipSize--;
             yield return new WaitForSeconds(FireRate);
             allowFire = true;
         }
@@ -38,6 +38,6 @@ public class Pistol : BallisticWeapon
 
     private void ReloadWeapon()
     {
-        MaxClipSize = 10;
+        CurrentClipSize = MaxClipSize;
     }
 }
