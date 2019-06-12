@@ -14,11 +14,11 @@ public class Nailgun : BallisticWeapon
 
     IEnumerator FireWeapon()
     {
-        if (ClipSize > 0 && allowFire)
+        if (MaxClipSize > 0 && allowFire)
         {
             allowFire = false;
             GameObject newBullet = Instantiate(nail, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
-            ClipSize--;
+            MaxClipSize--;
             yield return new WaitForSeconds(4f);
             allowFire = true;
         }
@@ -31,6 +31,6 @@ public class Nailgun : BallisticWeapon
 
     private void ReloadWeapon()
     {
-        ClipSize = 5;
+        MaxClipSize = 5;
     }
 }
