@@ -11,6 +11,7 @@ public class Lasergun : EnergyWeapon
 
     public override void Fire()
     {
+        Debug.Log("Fire Called");
         if (Charge > 0)
         {
             newLaser.SetActive(true);

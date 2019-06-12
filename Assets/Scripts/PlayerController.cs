@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public string horizontal = "Horizontal_P1";
     public string verticalRotation = "VerticalRotation_P1";
     public string horizontalRotation = "HorizontalRotation_P1";
-    public string triggerAxis = "Trigger_P1";
+    public string triggerAxis = "RightTrigger_P1";
 
     //Fire controls, added for completness sake. Might need to be moved
     public string PrimaryFire = "ButtonA_P1";
@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nailGun.ClipSize = 5;
         //agent = GetComponent<NavMeshAgent>();
         //agent.updateRotation = false;
         //agent.updateUpAxis = false;
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(PrimaryFire))
         {
-            nailGun.Reload();
             weapon.Reload();
         }
 

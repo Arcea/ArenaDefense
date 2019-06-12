@@ -12,6 +12,12 @@ public class Nailgun : BallisticWeapon
         StartCoroutine(FireWeapon());
     }
 
+    void Start()
+    {
+        this.ClipSize = 5;
+        this.FireRate = 0.50f;
+    }
+
     IEnumerator FireWeapon()
     {
         if (ClipSize > 0 && allowFire)

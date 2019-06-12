@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserBeam: {fileID: 6627681469682093650, guid: 71c04a554f6e3a849a8a4ce6d37957b0,
     type: 3}
-  player: {fileID: 7848153893618354468, guid: 7c91f5e14d29224419f08e98c02e6626, type: 3}
+  player: {fileID: -6069821042123877653, guid: 7c91f5e14d29224419f08e98c02e6626, type: 3}
