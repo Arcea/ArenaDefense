@@ -6,19 +6,15 @@ public class SpawnController : MonoBehaviour
 {
     public GameObject enemy;
 
-    public float timeBetween;
-    
+    public static float initialEnemyNumber = 2f;
+    private float currentEnemies = 1f;
 
-    // Update is called once per frame
     void Update()
     {
-        if (timeBetween <= 0)
+        while(currentEnemies <= initialEnemyNumber)
         {
             Instantiate(enemy, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            timeBetween -= Time.deltaTime;
+            currentEnemies++;
         }
     }
 }

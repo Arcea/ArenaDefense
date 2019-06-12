@@ -11354,8 +11354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83f666a610b0ac41a14bd37b1e1c977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 8515747747398728901, guid: f4da124a6483cbc44ae4e86f19e9f9ce, type: 3}
-  timeBetween: 5
+  enemy: {fileID: 1280955203}
+  startTimeBtwSpawn: 3
+  decreaseTime: 1.5
+  minTime: 2
 --- !u!4 &970183518
 Transform:
   m_ObjectHideFlags: 0
@@ -11449,6 +11451,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4da124a6483cbc44ae4e86f19e9f9ce, type: 3}
+--- !u!1 &1280955203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8515747747398728901, guid: f4da124a6483cbc44ae4e86f19e9f9ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1123366888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1886684716
 GameObject:
   m_ObjectHideFlags: 0
