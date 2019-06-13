@@ -6,20 +6,17 @@ public class SpawnController : MonoBehaviour
 {
     public GameObject enemy;
 
-    public float timeBetween;
-    
-
-    // Update is called once per frame
-    void Update()
+    public void Spawn(int amount)
     {
-        if (timeBetween <= 0)
+        StartCoroutine(Instantiate(amount));
+    }
+
+    IEnumerator Instantiate(int amount)
+    {
+        for (int i = 0; i < amount; i++)
         {
             Instantiate(enemy, transform.position, Quaternion.identity);
-            timeBetween = 1;
-        }
-        else
-        {
-            timeBetween -= Time.deltaTime;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
