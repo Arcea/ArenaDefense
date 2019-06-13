@@ -10,6 +10,7 @@ public class turretPlaceable : Placeable
     private GameObject target;
     public GameObject bullet;
     private bool allowFire;
+    private float turretRange;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class turretPlaceable : Placeable
         Invoke("Destroy", lifeTime);
         enemies = new GameObject[0];
         allowFire = true;
+        turretRange = 25f;
     }
 
     // Update is called once per frame
@@ -76,7 +78,7 @@ public class turretPlaceable : Placeable
             }
         }
 
-        if (Vector3.Distance(currentPosition, bestTarget.transform.position) < 25f)
+        if (Vector3.Distance(currentPosition, bestTarget.transform.position) < turretRange)
         {
             return bestTarget;
         }
