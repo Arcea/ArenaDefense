@@ -7,7 +7,7 @@ public class TeslaCoil : Power
     public TeslaCoil()
     {
         this.Type = PowerType.Ability;
-        this.Cooldown = 100f; //TBD
+        this.Cooldown = 100f; 
     }
 
     public override void Activate()

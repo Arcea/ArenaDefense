@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public string SpecialPower = "Fire2_P1";
     public float trigger;
 
+    public Power ability;
+    public Power ultimate;
+
     public Weapon weapon;
 
     private bool paused = false;
@@ -33,8 +36,8 @@ public class PlayerController : MonoBehaviour
         //agent.updateRotation = false;
         //agent.updateUpAxis = false;
 
-        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
-        menu.enabled = false;
+        //menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+        //menu.enabled = false;
     }
 
     // Update is called once per frame

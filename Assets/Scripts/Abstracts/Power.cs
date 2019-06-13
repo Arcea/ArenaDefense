@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PowerType { Ability, Ultimate }
 
-public abstract class Power
+public abstract class Power : MonoBehaviour
 {
     public float Cooldown { get; set; }
 

@@ -99,11 +99,11 @@ MonoBehaviour:
   horizontal: Horizontal_P1
   verticalRotation: VerticalRotation_P1
   horizontalRotation: HorizontalRotation_P1
-  triggerAxis: Trigger_P1
+  triggerAxis: RightTrigger_P1
   PrimaryFire: ButtonA_P1
   SpecialPower: Fire2_P1
   trigger: 0
-  weapon: {fileID: 316255254146204393, guid: 86a210f1bc980e141afe8049e6ac38a7, type: 3}
+  weapon: {fileID: 0}
 --- !u!50 &8893810344301397447
 Rigidbody2D:
   serializedVersion: 4
