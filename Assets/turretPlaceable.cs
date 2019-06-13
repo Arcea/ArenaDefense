@@ -24,17 +24,23 @@ public class turretPlaceable : Placeable
     {
         enemies = GameObject.FindGameObjectsWithTag("enemy");
 
-        if (enemies.Length != 0)
+        if (enemies.Length > 0)
         {
             target = GetClosestEnemy(enemies);
-
-            Vector3 dir = target.transform.position - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-            StartCoroutine(FireWeapon());
+        }
 
 
+        if (target != null) 
+        {
+
+            if (target != null)
+            {
+                Vector3 dir = target.transform.position - transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+                StartCoroutine(FireWeapon());
+            }
         }
         else
         {
@@ -70,6 +76,11 @@ public class turretPlaceable : Placeable
             }
         }
 
-        return bestTarget;
+        if (Vector3.Distance(currentPosition, bestTarget.transform.position) < 25f)
+        {
+            return bestTarget;
+        }
+
+        return null;
     }
 }

@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     public float trigger;
 
     public Weapon weapon;
-    public GameObject placeable;
 
     private bool paused = false;
     private Canvas menu;
@@ -77,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     void PlaceBuilding()
     {
-        GameObject newPlaceable = Instantiate(placeable, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), this.transform.rotation);
+        GameObject newPlaceable = Instantiate((GameObject)Resources.Load("TurretPlaceable"), new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) + Vector3.right * 4, this.transform.rotation);
         newPlaceable.GetComponent<Placeable>().lifeTime = 10;
     }
 
