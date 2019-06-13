@@ -7,7 +7,7 @@ public class SpawnController : MonoBehaviour
     public GameObject enemy;
 
     public static float initialEnemyNumber = 2f;
-    private float currentEnemies = 1f;
+    public float currentEnemies = 1f;
 
     void Update()
     {

@@ -6,7 +6,7 @@ public class WaveController : MonoBehaviour
 {
     private int currentWave = 0;
     private int EnemyNumbers = 0;
-    public GameObject spawner;
+    public GameObject[] spawners;
     private float InitEnemies = SpawnController.initialEnemyNumber;
 
     //TODO: Add Score based on enemies
@@ -16,6 +16,7 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         //StartCoroutine(WaveCountDown);
+        spawners = GetComponents
         NextWave();
     }
 
@@ -29,8 +30,17 @@ public class WaveController : MonoBehaviour
     void NextWave()
     {
         currentWave++;
-        spawner.SetActive(true);
-        SpawnController.initialEnemyNumber = 3f;
+        //Divide enemynumber by spawners
+        for (int i = 0; i < spawners.Length; i++)
+        {
+            spawners[i].SetActive(true);
+            SpawnController.initialEnemyNumber = 3f;
+        }
+    }
+
+    void Spawn(int spawnIndex, int amount)
+    {
+        spawners[spawnIndex]
     }
 
     void WaveCountDown()
