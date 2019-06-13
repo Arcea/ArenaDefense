@@ -15,17 +15,19 @@ public class Rifle : BallisticWeapon
 
     void Start()
     {
-        this.ClipSize = 30;
+        this.MaxClipSize = 30;
         this.FireRate = 0.10f;
     }
 
     IEnumerator FireWeapon()
     {
-        if (ClipSize > 0 && allowFire)
+        if (CurrentClipSize > 0 && allowFire)
         {
+            Debug.Log("Firing Rifle");
+            GetComponent<AudioSource>().Play();
             allowFire = false;
             GameObject newBullet = Instantiate(rifleBullet, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
-            ClipSize--;
+            CurrentClipSize--;
             yield return new WaitForSeconds(FireRate);
             allowFire = true;
         }
@@ -38,6 +40,6 @@ public class Rifle : BallisticWeapon
 
     private void ReloadWeapon()
     {
-        ClipSize = 30;
+        CurrentClipSize = 30;
     }
 }
