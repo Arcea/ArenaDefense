@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - enemy
+  - Music
+  - Menu
   layers:
   - Default
   - TransparentFX

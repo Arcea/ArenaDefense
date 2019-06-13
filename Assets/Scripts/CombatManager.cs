@@ -8,6 +8,7 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.health = 20;
     }
 
     // Update is called once per frame

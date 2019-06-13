@@ -6,9 +6,11 @@ using System.Linq;
 public class PlayerSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Debug.Log("asdhksadhals");
         List<Player> players = Assets.SceneTransfer.players.Where(p => p.GetController() != -1).ToList();
+        Debug.Log(players);
         foreach (Player player in players)
         {
             var variableForPrefab = (GameObject)Resources.Load(player.GetCharacter().subText.text, typeof(GameObject));

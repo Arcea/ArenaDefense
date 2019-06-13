@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,11 +21,22 @@ public class PlayerController : MonoBehaviour
     private Player currentPlayer;
     private int currentController;
 
+    
+    public Weapon weapon;
 
+    private bool paused = false;
+    private Canvas menu;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        //agent = GetComponent<NavMeshAgent>();
+        //agent.updateRotation = false;
+        //agent.updateUpAxis = false;
+
+      //  menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+        //menu.enabled = false;
     }
 
     public void SetController(int controller)
