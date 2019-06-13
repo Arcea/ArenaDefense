@@ -6,9 +6,16 @@ public enum PowerType { Ability, Ultimate }
 
 public abstract class Power : MonoBehaviour
 {
+    public bool IsReady { get; set; }
+
     public float Cooldown { get; set; }
 
     public PowerType Type { get; set; }
+
+    public Power()
+    {
+        IsReady = true;
+    }
 
     public abstract void Activate();
 }
