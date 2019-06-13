@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public float trigger;
 
     public Weapon weapon;
+
+    private bool paused = false;
+    private Canvas menu;
     
 
  
@@ -29,12 +33,15 @@ public class PlayerController : MonoBehaviour
         //agent.updateRotation = false;
         //agent.updateUpAxis = false;
 
-
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+        menu.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         Vector3 move = new Vector3(Input.GetAxis(horizontal), Input.GetAxis(vertical), 0);
         transform.position += move * speed * Time.deltaTime;
 

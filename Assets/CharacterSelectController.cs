@@ -45,7 +45,7 @@ public class CharacterSelectController : MonoBehaviour
                 {
                     GameObject.FindGameObjectWithTag("Music").GetComponent<MainMenuClickScript>().PlayMusic();
                     Assets.SceneTransfer.players = players;
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(1, UnityEngine.SceneManagement.LoadSceneMode.Single);
                 }
             }
         }

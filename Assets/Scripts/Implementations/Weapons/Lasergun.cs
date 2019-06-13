@@ -12,7 +12,7 @@ public class Lasergun : EnergyWeapon
     public override void Fire()
     {
         Debug.Log("Fire Called");
-        if (Charge > 0)
+        if (CurrentCharge > 0)
         {
             if (!GetComponent<AudioSource>().isPlaying)
             {
@@ -23,7 +23,7 @@ public class Lasergun : EnergyWeapon
             newLaser.transform.position = new Vector3(player.transform.position.x, player.transform.position.y,
                 player.transform.position.z);
             newLaser.transform.rotation = player.transform.rotation;
-            Charge--;
+            CurrentCharge--;
         }
         else
         {
@@ -39,8 +39,8 @@ public class Lasergun : EnergyWeapon
 
     void Start()
     {
-        this.Charge = 125;
-        this.FireRate = 0.10f;
+        this.MaxCharge = 125;
+        this.FireRate = 1;
         newLaser = Instantiate(laserBeam, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
         newLaser.SetActive(false);
     }
@@ -52,6 +52,6 @@ public class Lasergun : EnergyWeapon
 
     private void ReloadWeapon()
     {
-        Charge = 125;
+        CurrentCharge = MaxCharge;
     }
 }

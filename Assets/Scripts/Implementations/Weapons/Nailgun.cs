@@ -14,18 +14,18 @@ public class Nailgun : BallisticWeapon
 
     void Start()
     {
-        this.ClipSize = 5;
+        this.MaxClipSize = 5;
         this.FireRate = 0.50f;
     }
 
     IEnumerator FireWeapon()
     {
-        if (ClipSize > 0 && allowFire)
+        if (CurrentClipSize > 0 && allowFire)
         {
             GetComponent<AudioSource>().Play();
             allowFire = false;
             GameObject newBullet = Instantiate(nail, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
-            ClipSize--;
+            CurrentClipSize--;
             yield return new WaitForSeconds(4f);
             allowFire = true;
         }
@@ -38,6 +38,6 @@ public class Nailgun : BallisticWeapon
 
     private void ReloadWeapon()
     {
-        ClipSize = 5;
+        CurrentClipSize = MaxClipSize;
     }
 }
