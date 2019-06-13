@@ -35,7 +35,9 @@ public class Rifle : BallisticWeapon
 
     public override void Reload()
     {
-        Invoke("ReloadWeapon", 2f);
+        var clip = Resources.Load("Audio/rifleReload") as AudioClip;
+        GetComponent<AudioSource>().PlayOneShot(clip);
+        Invoke("ReloadWeapon", 0.7f);
     }
 
     private void ReloadWeapon()
