@@ -17,9 +17,11 @@ public class PlayerController : MonoBehaviour
     //Fire controls, added for completness sake. Might need to be moved
     public string PrimaryFire = "ButtonA_P1";
     public string SpecialPower = "Fire2_P1";
+    public string bButton = "ButtonB_P1";
     public float trigger;
 
     public Weapon weapon;
+    public GameObject placeable;
 
     private bool paused = false;
     private Canvas menu;
@@ -29,10 +31,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //agent = GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
-        //agent.updateUpAxis = false;
-
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
         menu.enabled = false;
     }
@@ -40,8 +38,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         Vector3 move = new Vector3(Input.GetAxis(horizontal), Input.GetAxis(vertical), 0);
         transform.position += move * speed * Time.deltaTime;
 
@@ -56,8 +52,12 @@ public class PlayerController : MonoBehaviour
             weapon.Reload();
         }
 
+        if (Input.GetButtonDown(bButton))
+        {
+            PlaceBuilding();
+        }
+
         trigger = Input.GetAxis(triggerAxis);
-        
 
         if (trigger != 0)
         {
@@ -68,14 +68,17 @@ public class PlayerController : MonoBehaviour
         {
             weapon.StopFire();
         }
-        //if(Input.GetButtonDown(SpecialPower)){
-        //    Debug.Log("UNLIMITED POWAH");
-        //}
     }
 
     void Shoot()
     {
         weapon.Fire();
+    }
+
+    void PlaceBuilding()
+    {
+        GameObject newPlaceable = Instantiate(placeable, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), this.transform.rotation);
+        newPlaceable.GetComponent<Placeable>().lifeTime = 10;
     }
 
 }

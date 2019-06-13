@@ -227,6 +227,12 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 458470329}
+    - target: {fileID: 7780705748076054787, guid: 7c91f5e14d29224419f08e98c02e6626,
+        type: 3}
+      propertyPath: placeable
+      value: 
+      objectReference: {fileID: 5392754715183845650, guid: 54cd084d1110387409603d8370cf017b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c91f5e14d29224419f08e98c02e6626, type: 3}
 --- !u!1 &186798639
@@ -11251,49 +11257,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &684620116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 684620118}
-  - component: {fileID: 684620117}
-  m_Layer: 0
-  m_Name: TeslaGunProjectile
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &684620117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684620116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e86b74d75fd144c9c6b97ffff6753b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &684620118
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684620116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.495695, y: -0.15546566, z: -14.019343}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &811287723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11301,11 +11264,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2062969253}
     m_Modifications:
-    - target: {fileID: 316255254146204393, guid: 86a210f1bc980e141afe8049e6ac38a7,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2062969248}
     - target: {fileID: 2541950494062530679, guid: 86a210f1bc980e141afe8049e6ac38a7,
         type: 3}
       propertyPath: m_Name
@@ -11366,6 +11324,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 316255254146204393, guid: 86a210f1bc980e141afe8049e6ac38a7,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2062969248}
     - target: {fileID: 316255254146204393, guid: 86a210f1bc980e141afe8049e6ac38a7,
         type: 3}
       propertyPath: player
@@ -12300,49 +12263,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1 &1937520692
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1937520694}
-  - component: {fileID: 1937520693}
-  m_Layer: 0
-  m_Name: TeslaGun
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1937520693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937520692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a49c128c5335b4cb693c77c1a18c8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1937520694
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937520692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.495695, y: -0.15546566, z: -14.019343}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2029888255
 GameObject:
   m_ObjectHideFlags: 0

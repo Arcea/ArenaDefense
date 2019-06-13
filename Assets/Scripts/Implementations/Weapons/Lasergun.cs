@@ -6,7 +6,6 @@ public class Lasergun : EnergyWeapon
 {
     public GameObject laserBeam;
     public GameObject player;
-    private bool laserBeamActive = false;
     private GameObject newLaser;
 
     public override void Fire()
