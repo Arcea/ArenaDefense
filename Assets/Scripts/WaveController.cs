@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class WaveController : MonoBehaviour
     private int playerCount;
 
     public int baseNumber = 20;
+    public Text waveText;
+    public Text remainingEnemies;
 
     //TODO: Add Score based on enemies
     //TODO: Add max based on spawner
@@ -25,8 +28,14 @@ public class WaveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Formula wavenumber * players or smth like that
-        //Debug.Log("Current wave: " + currentWave + " Enemy number: " + EnemyNumbers);
+        waveText.text = "Current wave: " + currentWave;
+        remainingEnemies.text = "Enemies remaining: " + GameObject.FindGameObjectsWithTag("enemy").Length;
+
+        if(GameObject.FindGameObjectsWithTag("enemy").Length <= 0)
+        {
+            currentWave++;
+            NextWave();
+        }
     }
 
     void NextWave()
@@ -39,14 +48,5 @@ public class WaveController : MonoBehaviour
         {
             item.GetComponent<SpawnController>().Spawn(enemiesPerSpawner);
         }
-
-        currentWave++;
-    }
-
-    void WaveCountDown()
-    {
-        Time.timeScale = 0;
-        //TODO: Add countdown for next wave
-        //TODO: Add score for next wave
     }
 }
