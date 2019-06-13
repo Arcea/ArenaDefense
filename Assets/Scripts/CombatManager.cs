@@ -14,7 +14,7 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(health + "Health of enemy");
+        //Debug.Log(health + "Health of enemy");
     }
 
     public void TakeDamage(float damage)
