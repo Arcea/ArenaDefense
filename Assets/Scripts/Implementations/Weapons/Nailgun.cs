@@ -22,6 +22,7 @@ public class Nailgun : BallisticWeapon
     {
         if (ClipSize > 0 && allowFire)
         {
+            GetComponent<AudioSource>().Play();
             allowFire = false;
             GameObject newBullet = Instantiate(nail, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             ClipSize--;

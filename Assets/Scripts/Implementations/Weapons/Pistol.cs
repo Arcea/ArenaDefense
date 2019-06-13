@@ -23,11 +23,13 @@ public class Pistol : BallisticWeapon
     {
         if (ClipSize > 0 && allowFire)
         {
+            GetComponent<AudioSource>().Play();
             allowFire = false;
             GameObject newBullet = Instantiate(pistolBullet, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             ClipSize--;
             yield return new WaitForSeconds(FireRate);
             allowFire = true;
+
         }
     }
 

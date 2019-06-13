@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterSelectController : MonoBehaviour
@@ -42,6 +43,7 @@ public class CharacterSelectController : MonoBehaviour
             {
                 if (player.PressedStart())
                 {
+                    GameObject.FindGameObjectWithTag("Music").GetComponent<MainMenuClickScript>().PlayMusic();
                     Assets.SceneTransfer.players = players;
                     UnityEngine.SceneManagement.SceneManager.LoadScene(1);
                 }

@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (trigger != 0)
         {
-            Debug.Log("Primary Fire");
+            //Debug.Log("Primary Fire");
             Shoot();
         }
         else

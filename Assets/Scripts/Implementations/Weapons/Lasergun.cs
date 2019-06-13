@@ -14,6 +14,11 @@ public class Lasergun : EnergyWeapon
         Debug.Log("Fire Called");
         if (Charge > 0)
         {
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+
             newLaser.SetActive(true);
             newLaser.transform.position = new Vector3(player.transform.position.x, player.transform.position.y,
                 player.transform.position.z);
@@ -29,6 +34,7 @@ public class Lasergun : EnergyWeapon
     public override void StopFire()
     {
         newLaser.SetActive(false);
+        GetComponent<AudioSource>().Stop();
     }
 
     void Start()
