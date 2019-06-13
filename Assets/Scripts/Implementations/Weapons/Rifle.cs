@@ -23,6 +23,7 @@ public class Rifle : BallisticWeapon
     {
         if (CurrentClipSize > 0 && allowFire)
         {
+            Debug.Log("Firing Rifle");
             GetComponent<AudioSource>().Play();
             allowFire = false;
             GameObject newBullet = Instantiate(rifleBullet, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);

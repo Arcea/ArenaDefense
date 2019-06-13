@@ -11,7 +11,7 @@ public class Lasergun : EnergyWeapon
 
     public override void Fire()
     {
-        Debug.Log("Fire Called");
+        Debug.Log("Laser Rifle called ");
         if (CurrentCharge > 0)
         {
             if (!GetComponent<AudioSource>().isPlaying)
