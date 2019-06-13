@@ -6,15 +6,17 @@ public class SpawnController : MonoBehaviour
 {
     public GameObject enemy;
 
-    public static float initialEnemyNumber = 2f;
-    public float currentEnemies = 1f;
-
-    void Update()
+    public void Spawn(int amount)
     {
-        while(currentEnemies <= initialEnemyNumber)
+        StartCoroutine(Instantiate(amount));
+    }
+
+    IEnumerator Instantiate(int amount)
+    {
+        for (int i = 0; i < amount; i++)
         {
             Instantiate(enemy, transform.position, Quaternion.identity);
-            currentEnemies++;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    private int currentWave = 0;
-    private int EnemyNumbers = 0;
-    public GameObject[] spawners;
-    private float InitEnemies = SpawnController.initialEnemyNumber;
+    private int currentWave = 1;
+    private GameObject[] spawners;
+    private int playerCount;
+
+    public int baseNumber = 20;
 
     //TODO: Add Score based on enemies
     //TODO: Add max based on spawner
@@ -16,7 +17,8 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         //StartCoroutine(WaveCountDown);
-        spawners = GetComponents
+        spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
         NextWave();
     }
 
@@ -29,18 +31,16 @@ public class WaveController : MonoBehaviour
 
     void NextWave()
     {
-        currentWave++;
-        //Divide enemynumber by spawners
-        for (int i = 0; i < spawners.Length; i++)
-        {
-            spawners[i].SetActive(true);
-            SpawnController.initialEnemyNumber = 3f;
-        }
-    }
+        int totalEnemies = baseNumber * currentWave * playerCount;
+        int enemiesPerSpawner = totalEnemies / spawners.Length;
 
-    void Spawn(int spawnIndex, int amount)
-    {
-        spawners[spawnIndex]
+        //Divide enemynumber by spawners
+        foreach (GameObject item in spawners)
+        {
+            item.GetComponent<SpawnController>().Spawn(enemiesPerSpawner);
+        }
+
+        currentWave++;
     }
 
     void WaveCountDown()
