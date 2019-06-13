@@ -19,8 +19,15 @@ public class Pistol : BallisticWeapon
         this.FireRate = 1;
     }
 
+    void Update()
+    {
+        gameObject.SetActive(true);
+        Debug.Log(gameObject.activeInHierarchy);
+    }
+
     IEnumerator FireWeapon()
     {
+        
         if (ClipSize > 0 && allowFire)
         {
             allowFire = false;

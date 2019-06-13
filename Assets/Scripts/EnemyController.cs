@@ -19,14 +19,16 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        
-        for (int i = 0; i < players.Length; i++)
-        {
-            targets.Add(players[i].GetComponent<Transform>());
-        }
 
-        closestTarget = targets[0];
-        closestDistance = Vector2.Distance(transform.position, targets[0].position);
+
+
+        // for (int i = 0; i < players.Length; i++)
+        // {
+        //targets.Add(players[i].GetComponent<Transform>());
+        //}
+
+        // closestTarget = targets[0];
+        //closestDistance = Vector2.Distance(transform.position, targets[0].position);
 
 
         agent = GetComponent<NavMeshAgent>();
@@ -49,6 +51,6 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        agent.SetDestination(closestTarget.transform.position);
+        //agent.SetDestination(closestTarget.transform.position);
     }
 }

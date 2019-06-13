@@ -7,49 +7,49 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private NavMeshAgent agent;
-    public string vertical = "Vertical_P1";
-    public string horizontal = "Horizontal_P1";
-    public string verticalRotation = "VerticalRotation_P1";
-    public string horizontalRotation = "HorizontalRotation_P1";
-    public string triggerAxis = "RightTrigger_P1";
+    private string vertical = "Vertical_P";
+    private string horizontal = "Horizontal_P";
+    private string verticalRotation = "VerticalRotation_P";
+    private string horizontalRotation = "HorizontalRotation_P";
+    private string triggerAxis = "RightTrigger_P";
 
     //Fire controls, added for completness sake. Might need to be moved
-    public string PrimaryFire = "ButtonA_P1";
-    public string SpecialPower = "Fire2_P1";
-    public float trigger;
+    private string PrimaryFire = "ButtonA_P";
+    private string SpecialPower = "Fire2_P";
+    private float trigger;
+    private Player currentPlayer;
+    private int currentController;
 
-    public Weapon weapon;
-    
 
- 
+
     // Start is called before the first frame update
     void Start()
     {
-        //agent = GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
-        //agent.updateUpAxis = false;
+    }
 
-
+    public void SetController(int controller)
+    {
+        currentController = controller;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = new Vector3(Input.GetAxis(horizontal), Input.GetAxis(vertical), 0);
+        Vector3 move = new Vector3(Input.GetAxis(horizontal + currentController), Input.GetAxis(vertical + currentController), 0);
         transform.position += move * speed * Time.deltaTime;
 
-        float angle = Mathf.Atan2(Input.GetAxis(horizontalRotation), Input.GetAxis(verticalRotation)) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(Input.GetAxis(horizontalRotation + currentController), Input.GetAxis(verticalRotation + currentController)) * Mathf.Rad2Deg;
         if (angle != 0)
         {
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
-        if (Input.GetButtonDown(PrimaryFire))
+        if (Input.GetButtonDown(PrimaryFire + currentController))
         {
-            weapon.Reload();
+            GetComponentInChildren<Weapon>().Reload();
         }
 
-        trigger = Input.GetAxis(triggerAxis);
+        trigger = Input.GetAxis(triggerAxis + currentController);
         
 
         if (trigger != 0)
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            weapon.StopFire();
+            GetComponentInChildren<Weapon>().StopFire();
         }
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        weapon.Fire();
+        GetComponentInChildren<Weapon>().Fire();
     }
 
 }
