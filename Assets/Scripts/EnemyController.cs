@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.Warp(transform.position);
+        agent.stoppingDistance = 2f;
     }
 
     // Update is called once per frame
