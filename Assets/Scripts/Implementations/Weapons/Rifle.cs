@@ -20,7 +20,6 @@ public class Rifle : BallisticWeapon
 
     IEnumerator FireWeapon()
     {
-        Debug.Log(CurrentClipSize);
         if (CurrentClipSize > 0 && allowFire)
         {
             Debug.Log("Firing Rifle");

@@ -17,7 +17,6 @@ public abstract class PlayerClass : MonoBehaviour
     public PlayerClass()
     {
         _currentHealth = Health;
-        Weapon = new Rifle();
     }
 
     public virtual void TakeDamage(float damage)
