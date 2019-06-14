@@ -13,13 +13,20 @@ public class WaveController : MonoBehaviour
     public Text waveText;
     public Text remainingEnemies;
 
+    //Wave countdown variables; might need seperation
+    private Canvas nextWavePanel;
+    public Text waveCount;
+    public Text countdown;
+    float countDownTime;
+
     //TODO: Add Score based on enemies
     //TODO: Add max based on spawner
 
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(WaveCountDown);
+        nextWavePanel = GameObject.FindGameObjectWithTag("WaveMenu").GetComponent<Canvas>();
+        nextWavePanel.enabled = false;
         spawners = GameObject.FindGameObjectsWithTag("Spawner");
         playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
         NextWave();
@@ -40,6 +47,12 @@ public class WaveController : MonoBehaviour
 
     void NextWave()
     {
+        if (currentWave != 1)
+        {
+            Time.timeScale = 0;
+            StartCoroutine(Countdown());
+        }
+
         int totalEnemies = baseNumber * currentWave * playerCount;
         int enemiesPerSpawner = totalEnemies / spawners.Length;
 
@@ -48,5 +61,20 @@ public class WaveController : MonoBehaviour
         {
             item.GetComponent<SpawnController>().Spawn(enemiesPerSpawner);
         }
+    }
+
+    IEnumerator Countdown()
+    {
+        nextWavePanel.enabled = true;
+        waveCount.text = "Wave " + currentWave + " incoming";
+
+        for (int i = 5; i > 0; i--)
+        {
+            countdown.text = "" + i;
+            yield return new WaitForSecondsRealtime(1);
+        }
+
+        nextWavePanel.enabled = false;
+        Time.timeScale = 1;
     }
 }

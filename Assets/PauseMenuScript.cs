@@ -17,8 +17,6 @@ public class PauseMenuScript : MonoBehaviour
     private string start = "Start_P";
     private bool paused = false;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
