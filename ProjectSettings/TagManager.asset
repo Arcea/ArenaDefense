@@ -8,6 +8,9 @@ TagManager:
   - enemy
   - Music
   - Menu
+  - Spawner
+  - WaveMenu
+  - CountDown
   layers:
   - Default
   - TransparentFX

@@ -31,12 +31,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //agent = GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
-        //agent.updateUpAxis = false;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
 
-      //  menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
-        //menu.enabled = false;
+      menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+      menu.enabled = false;
     }
 
     public void SetController(int controller)
