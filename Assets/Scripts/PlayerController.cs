@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     private Player currentPlayer;
     private int currentController;
 
-    
-    public Weapon weapon;
+
+    public PlayerClass playerClass;
 
     private bool paused = false;
     private Canvas menu;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown(PrimaryFire + currentController))
         {
-            GetComponentInChildren<Weapon>().Reload();
+            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Reload();
         }
 
         trigger = Input.GetAxis(triggerAxis + currentController);
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            GetComponentInChildren<Weapon>().StopFire();
+            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().StopFire();
         }
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
@@ -80,7 +80,6 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        GetComponentInChildren<Weapon>().Fire();
+        GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Fire();
     }
-
 }
