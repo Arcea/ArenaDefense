@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public string verticalRotation = "VerticalRotation_P1";
     public string horizontalRotation = "HorizontalRotation_P1";
     public string triggerAxis = "RightTrigger_P1";
+    public string bButton = "ButtonB_P1";
 
     //Fire controls, added for completness sake. Might need to be moved
     public string PrimaryFire = "ButtonA_P1";
@@ -56,6 +57,11 @@ public class PlayerController : MonoBehaviour
             weapon.Reload();
         }
 
+        if (Input.GetButtonDown(bButton))
+        {
+            PlaceBuilding();
+        }
+
         trigger = Input.GetAxis(triggerAxis);
         
 
@@ -76,6 +82,12 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         weapon.Fire();
+    }
+
+    void PlaceBuilding()
+    {
+        GameObject newPlaceable = Instantiate((GameObject)Resources.Load("Turret"), new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) + Vector3.right * 4, this.transform.rotation);
+        newPlaceable.GetComponentInChildren<TurretPlaceable>().lifeTime = 10;
     }
 
 }

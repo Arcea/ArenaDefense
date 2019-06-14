@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: -9033641394992616659
     second: TurretHead 5
+  - first:
+      213: 6894774077092500322
+    second: TurretHead_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,8 +101,8 @@ TextureImporter:
         y: 156
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -119,8 +122,8 @@ TextureImporter:
         y: 156
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,8 +143,8 @@ TextureImporter:
         y: 156
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,8 +164,8 @@ TextureImporter:
         y: 156
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,8 +185,8 @@ TextureImporter:
         y: 156
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,8 +206,8 @@ TextureImporter:
         y: 56
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,6 +215,27 @@ TextureImporter:
       bones: []
       spriteID: 350a9c2945cde0342a124c50987917c0
       internalID: -9033641394992616659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretHead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51
+        width: 492
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd2c425c6d72ba47a3d79288827c8e7
+      internalID: 6894774077092500322
       vertices: []
       indices: 
       edges: []
