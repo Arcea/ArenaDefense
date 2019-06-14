@@ -47,12 +47,11 @@ public class WaveController : MonoBehaviour
 
     void NextWave()
     {
-        if(currentWave != 1)
+        if (currentWave != 1)
         {
             Time.timeScale = 0;
             StartCoroutine(Countdown());
         }
-        
         int totalEnemies = baseNumber * currentWave * playerCount;
         int enemiesPerSpawner = totalEnemies / spawners.Length;
 
@@ -75,13 +74,6 @@ public class WaveController : MonoBehaviour
             countdown.text = "" + i;
             yield return new WaitForSecondsRealtime(1);
         }
-
-        
-        //for (countDownTime = 5; countDownTime > 0; countDownTime -= Time.deltaTime)
-        //{
-        ///    yield return null;
-        //    countdown.text = "" + (int)countDownTime;
-        //}
 
         nextWavePanel.enabled = false;
         Time.timeScale = 1;

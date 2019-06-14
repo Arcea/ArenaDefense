@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-      menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
-      menu.enabled = false;
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+        menu.enabled = false;
     }
 
     public void SetController(int controller)
