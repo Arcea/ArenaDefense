@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PlayerClass
+public abstract class PlayerClass : MonoBehaviour
 {
     public string Name { get; set; }
     public float Health { get; set; }
@@ -17,6 +17,7 @@ public abstract class PlayerClass
     public PlayerClass()
     {
         _currentHealth = Health;
+        Weapon = new Rifle();
     }
 
     public virtual void TakeDamage(float damage)
@@ -47,16 +48,6 @@ public abstract class PlayerClass
     public void ModifySpeed(float modifier)
     {
         Speed *= modifier;
-    }
-
-    public void FireWeapon()
-    {
-        Weapon.Fire();
-    }
-
-    public void ReloadWeapon()
-    {
-        Weapon.Reload();
     }
 
     public void ActivateAbility()
