@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     public float coolDownUntilNextSwitch = 0.2f;
+    public float coolDownUntilNextScroll = 0.05f;
 
     private int inputNumber = -1;
     private Player player;
@@ -32,8 +33,18 @@ public class PlayerInput : MonoBehaviour
         {
             // left
             StartCoroutine(SwitchTargetRoutine(coolDownUntilNextSwitch, -1));
-            
-        } 
+        }
+
+        if (Input.GetAxis("VerticalRotation_P" + inputNumber) > 0)
+        {
+            // up
+            StartCoroutine(ScrollRoutine(coolDownUntilNextSwitch, 1));
+        }
+        else if (Input.GetAxis("VerticalRotation_P" + inputNumber) < 0)
+        {
+            // down
+            StartCoroutine(ScrollRoutine(coolDownUntilNextSwitch, -1));
+        }
     }
 
     IEnumerator SwitchTargetRoutine(float duration, int direction)
@@ -58,6 +69,20 @@ public class PlayerInput : MonoBehaviour
         {
             yield return new WaitForSeconds(0f);
         }
+    }
+
+    IEnumerator ScrollRoutine(float duration, int direction)
+    {
+        if (direction > 0)
+        {
+            GetComponentInChildren<CharacterScript>().ScrollLoreDown();
+        }
+        else
+        {
+            GetComponentInChildren<CharacterScript>().ScrollLoreUp();
+        }
+
+        yield return new WaitForSeconds(duration);
     }
 
     public void SetInputNumber(int numb)

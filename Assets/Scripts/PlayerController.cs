@@ -17,10 +17,10 @@ public class PlayerController : MonoBehaviour
     //Fire controls, added for completness sake. Might need to be moved
     private string PrimaryFire = "ButtonA_P";
     private string SpecialPower = "Fire2_P";
+
     private float trigger;
     private Player currentPlayer;
     private int currentController;
-
 
     public PlayerClass playerClass;
 
@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
         {
             GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().StopFire();
         }
+
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
         //}
