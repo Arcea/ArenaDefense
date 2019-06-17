@@ -1976,7 +1976,10 @@ MonoBehaviour:
   speed: 5
   playerClass: {fileID: 6915481774723944714, guid: 9138c93400e73ab4bab791642185780a,
     type: 3}
-  slider: {fileID: 0}
+  healthSlider: {fileID: 0}
+  ammoSlider: {fileID: 0}
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!50 &1576984062877594738
 Rigidbody2D:
   serializedVersion: 4
@@ -2210,3 +2213,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787698b85f226c48b8900c563c36144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rifle: {fileID: 0}

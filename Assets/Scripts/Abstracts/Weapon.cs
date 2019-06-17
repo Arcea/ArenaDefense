@@ -12,4 +12,7 @@ public abstract class Weapon : MonoBehaviour //Inherits MonoBehaviour in order t
     {
 
     }
+
+    public abstract float getCurrentAmmo();
+    public abstract float getMaxAmmo();
 }

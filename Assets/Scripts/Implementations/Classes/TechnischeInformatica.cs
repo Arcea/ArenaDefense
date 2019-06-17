@@ -11,7 +11,8 @@ public class TechnischeInformatica : PlayerClass
     public TechnischeInformatica()
     {
         this.Name = "Cipher";
-        this.Health = 10000f;
+        this.Health = 50f;
+        this.MaxHealth = 50f;
         this.Shield = 0f;
         this.Speed = 5f;
         this.Weapon = _pistol;

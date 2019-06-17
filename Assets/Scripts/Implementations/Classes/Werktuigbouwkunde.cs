@@ -11,7 +11,8 @@ public class Werktuigbouwkunde : PlayerClass
     public Werktuigbouwkunde()
     {
         this.Name = "Bullseye";
-        this.Health = 10000f;
+        this.Health = 50f;
+        this.MaxHealth = 50f;
         this.Shield = 0f;
         this.Speed = 5f;
         this.Weapon = _nailgun;

@@ -7,15 +7,21 @@ public class Rifle : BallisticWeapon
     public GameObject rifleBullet;
     private bool allowFire = true;
 
+    public Rifle()
+    {
+        
+            this.MaxClipSize = 30f;
+            this.FireRate = 0.10f;
+    }
+
     public override void Fire()
     {
         StartCoroutine(FireWeapon());
     }
 
     void Start()
-    {
-        this.MaxClipSize = 30;
-        this.FireRate = 0.10f;
+    { 
+
     }
 
     IEnumerator FireWeapon()
@@ -37,6 +43,16 @@ public class Rifle : BallisticWeapon
         var clip = Resources.Load("Audio/rifleReload") as AudioClip;
         GetComponent<AudioSource>().PlayOneShot(clip);
         Invoke("ReloadWeapon", 0.7f);
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return this.CurrentClipSize;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return this.MaxClipSize;
     }
 
     private void ReloadWeapon()

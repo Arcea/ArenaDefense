@@ -6,6 +6,7 @@ public abstract class PlayerClass : MonoBehaviour
 {
     public string Name { get; set; }
     public float Health { get; set; }
+    public float MaxHealth { get; set; }
     public float Shield { get; set; }
     public float Speed { get; set; }
     public Weapon Weapon { get; set; }

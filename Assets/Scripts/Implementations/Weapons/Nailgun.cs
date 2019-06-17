@@ -12,7 +12,7 @@ public class Nailgun : BallisticWeapon
         StartCoroutine(FireWeapon());
     }
 
-    void Start()
+    public Nailgun()
     {
         this.MaxClipSize = 5;
         this.FireRate = 0.50f;
@@ -30,6 +30,17 @@ public class Nailgun : BallisticWeapon
             allowFire = true;
         }
     }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentClipSize;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxClipSize;
+    }
+
 
     public override void Reload()
     {

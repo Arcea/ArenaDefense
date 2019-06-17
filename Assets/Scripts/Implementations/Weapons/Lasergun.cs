@@ -38,14 +38,29 @@ public class Lasergun : EnergyWeapon
         GetComponent<AudioSource>().Stop();
     }
 
+    public Lasergun()
+    {
+        this.MaxCharge = 125;
+        this.FireRate = 1;
+    }
+
     void Start()
     {
         this.audioSource = GetComponent<AudioSource>();
-        this.MaxCharge = 125;
-        this.FireRate = 1;
         newLaser = Instantiate(laserBeam, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
         newLaser.SetActive(false);
     }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentCharge;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxCharge;
+    }
+
 
     public override void Reload()
     {
