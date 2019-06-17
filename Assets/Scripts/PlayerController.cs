@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
 
     private float trigger;
     private Player currentPlayer;
-    private int currentController = 1;
+
+    private int currentController;
+    private bool canTakeDamage = true;
 
     public PlayerClass playerClass;
 
@@ -91,5 +93,32 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Fire();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("enemy"))
+        {
+            StartCoroutine(TakeDamage());
+        }
+    }
+
+    IEnumerator TakeDamage()
+    {
+        if (canTakeDamage)
+        {
+            canTakeDamage = false;
+            playerClass.Health -= 10;
+
+            if (playerClass.Health <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f); //make player transparent.
+            yield return new WaitForSeconds(2f);
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); //remove transparency.
+            canTakeDamage = true;
+        }
     }
 }
