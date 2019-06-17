@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  rotationspeed: 15
   stunned: 0
 --- !u!50 &8839336581264179270
 Rigidbody2D:
