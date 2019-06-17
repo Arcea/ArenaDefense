@@ -44,9 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c0852384416349967a2a4797eb7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rifleBullet: {fileID: 7680939450979248485, guid: 640953ee686dc014189266bff3e83c74,
+  rifleBullet: {fileID: 5284208875832291959, guid: 640953ee686dc014189266bff3e83c74,
     type: 3}
-  player: {fileID: 0}
 --- !u!82 &-6930841937166538870
 AudioSource:
   m_ObjectHideFlags: 0

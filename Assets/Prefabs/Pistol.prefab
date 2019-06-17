@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35af5997cdf6ce4408cc91d4e6c01e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistolBullet: {fileID: 37120315946179282, guid: 46b268e45dc7d394b9cb93bf46e46555,
+  pistolBullet: {fileID: 4752564426197800242, guid: 46b268e45dc7d394b9cb93bf46e46555,
     type: 3}
   player: {fileID: 5753729104266221592, guid: 155ee37c92506274ab155fedc321c4a2, type: 3}
 --- !u!82 &-9040936711098894173

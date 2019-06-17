@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Lasergun : EnergyWeapon
 {
-    public GameObject laserBeam;
+    public Projectile laserBeam;
     public GameObject player;
-    private bool laserBeamActive = false;
     private GameObject newLaser;
     private AudioSource audioSource;
 
     public override void Fire()
     {
-        Debug.Log("Laser Rifle called ");
-        if (CurrentCharge > 0)
+        if (CurrentCharge > 10)
         {
             if (!GetComponent<AudioSource>().isPlaying)
             {
@@ -24,7 +22,7 @@ public class Lasergun : EnergyWeapon
             newLaser.transform.position = new Vector3(player.transform.position.x, player.transform.position.y,
                 player.transform.position.z);
             newLaser.transform.rotation = player.transform.rotation;
-            CurrentCharge--;
+            CurrentCharge -= 0.5f;
         }
         else
         {
@@ -36,13 +34,36 @@ public class Lasergun : EnergyWeapon
     {
         newLaser.SetActive(false);
         GetComponent<AudioSource>().Stop();
+        
     }
 
     public Lasergun()
     {
         this.MaxCharge = 125;
         this.FireRate = 1;
+        newLaser = Instantiate(laserBeam.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
+        CurrentCharge = MaxCharge;
+        newLaser.SetActive(false);
     }
+
+    void Update()
+    {
+        if (player.GetComponent<PlayerController>().trigger == 0)
+        {
+            Debug.Log(CurrentCharge + "CurrentCharge");
+            if (!newLaser.activeInHierarchy && CurrentCharge < MaxCharge)
+            {
+                CurrentCharge += Time.deltaTime * 12;
+            }
+        }
+    }
+
+    public override void ModifyDamage(float modifier)
+    {
+        laserBeam.Damage *= modifier;
+        
+    }
+
 
     void Start()
     {
@@ -61,10 +82,9 @@ public class Lasergun : EnergyWeapon
         return MaxCharge;
     }
 
-
     public override void Reload()
     {
-        Invoke("ReloadWeapon", 2f);
+        //Invoke("ReloadWeapon", 2f);
     }
 
     private void ReloadWeapon()

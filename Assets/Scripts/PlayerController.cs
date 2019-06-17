@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
     private string triggerAxis = "RightTrigger_P";
 
     //Fire controls, added for completness sake. Might need to be moved
-    private string PrimaryFire = "ButtonA_P";
-    private string SpecialPower = "Fire2_P";
 
-    private float trigger;
+    private string PrimaryFire = "ButtonA_P";
+    private string SpecialPower = "LeftTrigger_P";
+    private string Reload = "ButtonA_P";
+    public float trigger;
+
     private Player currentPlayer;
 
     private int currentController;
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ReloadWeapon();
         Transform canvas = this.transform.Find("Canvas");
         Transform panel = canvas.Find("Panel");
         panel.transform.position = new Vector3(uiXPosition, 80, 0);
@@ -88,17 +91,17 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
-        if (Input.GetButtonDown(PrimaryFire + currentController))
+        if (Input.GetButtonDown(Reload + currentController))
         {
-            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Reload();
+            ReloadWeapon();
         }
 
         trigger = Input.GetAxis(triggerAxis + currentController);
+        float leftTrigger = Input.GetAxis(SpecialPower + currentController);
         
 
         if (trigger != 0)
         {
-            Debug.Log("Primary Fire");
             Shoot();
             
         }
@@ -107,14 +110,21 @@ public class PlayerController : MonoBehaviour
             GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().StopFire();
         }
 
-        //if(Input.GetButtonDown(SpecialPower)){
-        //    Debug.Log("UNLIMITED POWAH");
-        //}
+        if (leftTrigger != 0)
+        {
+            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Power>().Activate();
+        }
     }
 
     void Shoot()
     {
         GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Fire();
+    }
+
+
+    void ReloadWeapon()
+    {
+        GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Reload();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

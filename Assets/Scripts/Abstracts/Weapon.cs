@@ -8,6 +8,8 @@ public abstract class Weapon : MonoBehaviour //Inherits MonoBehaviour in order t
 
     public abstract void Reload();
 
+    public abstract void ModifyDamage(float modifier);
+
     public virtual void StopFire()
     {
 
