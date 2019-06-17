@@ -20,23 +20,32 @@ public class PlayerController : MonoBehaviour
 
     private float trigger;
     private Player currentPlayer;
-    private int currentController;
+    private int currentController = 1;
 
     public PlayerClass playerClass;
 
     private bool paused = false;
     private Canvas menu;
+    public UnityEngine.UI.Slider slider;
+    private int uiXPosition;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+        Transform canvas = this.transform.Find("Canvas");
+        Transform panel = canvas.Find("Panel");
+        panel.transform.position = new Vector3(uiXPosition, 80, 0);
+        slider = panel.Find("Health").GetComponent<UnityEngine.UI.Slider>();
+        slider.value = 500;
 
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
         menu.enabled = false;
+    }
+
+    public void SetUIPosition(int x)
+    {
+        uiXPosition = x;
     }
 
     public void SetController(int controller)

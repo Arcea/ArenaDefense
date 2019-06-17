@@ -11,12 +11,14 @@ public class PlayerSpawner : MonoBehaviour
         Debug.Log("asdhksadhals");
         List<Player> players = Assets.SceneTransfer.players.Where(p => p.GetController() != -1).ToList();
         Debug.Log(players);
+        int x = 145;
         foreach (Player player in players)
         {
             var variableForPrefab = (GameObject)Resources.Load(player.GetCharacter().subText.text, typeof(GameObject));
             GameObject obj = GameObject.Instantiate(variableForPrefab, transform.position, transform.rotation);
             obj.GetComponent<PlayerController>().SetController(player.GetController());
-            Debug.Log(obj);
+            obj.GetComponent<PlayerController>().SetUIPosition(x);
+            x += 200;
         }
     }
 
