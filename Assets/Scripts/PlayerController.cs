@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
     private string triggerAxis = "RightTrigger_P";
 
     //Fire controls, added for completness sake. Might need to be moved
-    private string PrimaryFire = "ButtonA_P";
-    private string SpecialPower = "Fire2_P";
+    private string Reload = "ButtonA_P";
+    private string SpecialPower = "LeftTrigger_P";
+    public float trigger;
 
-    private float trigger;
     private Player currentPlayer;
     private int currentController;
 
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
+        ReloadWeapon();
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
         menu.enabled = false;
     }
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public void SetController(int controller)
     {
         currentController = controller;
+        Debug.Log(controller);
     }
 
     // Update is called once per frame
@@ -56,9 +58,16 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
-        if (Input.GetButtonDown(PrimaryFire + currentController))
+        if (Input.GetButtonDown(Reload + currentController))
         {
-            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Reload();
+            ReloadWeapon();
+        }
+
+        float leftTrigger = Input.GetAxis(SpecialPower + currentController);
+
+        if (leftTrigger != 0)
+        {
+            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Power>().Activate();
         }
 
         trigger = Input.GetAxis(triggerAxis + currentController);
@@ -66,21 +75,21 @@ public class PlayerController : MonoBehaviour
 
         if (trigger != 0)
         {
-            Debug.Log("Primary Fire");
             Shoot();
         }
         else
         {
             GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().StopFire();
         }
-
-        //if(Input.GetButtonDown(SpecialPower)){
-        //    Debug.Log("UNLIMITED POWAH");
-        //}
     }
 
     void Shoot()
     {
         GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Fire();
+    }
+
+    void ReloadWeapon()
+    {
+        GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Reload();
     }
 }

@@ -6,7 +6,7 @@ public class Werktuigbouwkunde : PlayerClass
 {
     private Weapon _nailgun = new Nailgun();
     private Power _landmine = new Landmine();
-    private Power _turret = new Turret();
+    private Power _turret;
 
     public Werktuigbouwkunde()
     {
@@ -17,5 +17,10 @@ public class Werktuigbouwkunde : PlayerClass
         this.Weapon = _nailgun;
         this.Ability = _landmine;
         this.Ultimate = _turret;
+    }
+
+    void Start()
+    {
+        _turret = gameObject.AddComponent<Turret>();
     }
 }
