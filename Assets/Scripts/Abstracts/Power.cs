@@ -8,6 +8,8 @@ public abstract class Power : MonoBehaviour
 {
     public bool IsReady { get; set; }
 
+    public float currentTimeForCooldown { get; set; }
+
     public float Cooldown { get; set; }
 
     public PowerType Type { get; set; }
@@ -18,4 +20,15 @@ public abstract class Power : MonoBehaviour
     }
 
     public abstract void Activate();
+
+    void Start()
+    {
+        currentTimeForCooldown = Cooldown;
+    }
+
+    void Update()
+    {
+        currentTimeForCooldown += Time.deltaTime;
+        Debug.Log(currentTimeForCooldown + "CurrentTimeForCooldown");
+    }
 }
