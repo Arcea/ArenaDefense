@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60dd4147732fc884f95f604ea35046b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserBeam: {fileID: 6627681469682093650, guid: 71c04a554f6e3a849a8a4ce6d37957b0,
+  laserBeam: {fileID: 1462543041223120480, guid: 71c04a554f6e3a849a8a4ce6d37957b0,
     type: 3}
   player: {fileID: 5331592725126833692}
 --- !u!82 &5331592725116945429
@@ -1862,9 +1862,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  trigger: 0
   playerClass: {fileID: 4703519376053211240, guid: 88157ca0edf524641a518fc7a0115973,
     type: 3}
-  slider: {fileID: 0}
+  healthSlider: {fileID: 0}
+  ammoSlider: {fileID: 0}
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!50 &5331592725126833694
 Rigidbody2D:
   serializedVersion: 4

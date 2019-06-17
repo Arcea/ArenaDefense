@@ -494,9 +494,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  trigger: 0
   playerClass: {fileID: -1942759019353528286, guid: 59974849e8c0c004694c151c2288d3ae,
     type: 3}
-  slider: {fileID: 0}
+  healthSlider: {fileID: 0}
+  ammoSlider: {fileID: 0}
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!50 &5175958875427219599
 Rigidbody2D:
   serializedVersion: 4
@@ -1390,7 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a49c128c5335b4cb693c77c1a18c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyBall: {fileID: 2106468288693560729, guid: a94d5e403147e5a448aaf6e0ad463299,
+  energyBall: {fileID: 2106468288693560728, guid: a94d5e403147e5a448aaf6e0ad463299,
     type: 3}
   player: {fileID: 2370952350582951063}
 --- !u!1 &5977096850837058292

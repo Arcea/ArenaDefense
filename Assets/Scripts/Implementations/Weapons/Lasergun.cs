@@ -68,7 +68,7 @@ public class Lasergun : EnergyWeapon
     void Start()
     {
         this.audioSource = GetComponent<AudioSource>();
-        newLaser = Instantiate(laserBeam, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
+        newLaser = Instantiate(laserBeam.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
         newLaser.SetActive(false);
     }
 

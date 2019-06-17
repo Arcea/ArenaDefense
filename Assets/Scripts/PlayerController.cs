@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
             if (playerClass.Health <= 0)
             {
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
 
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f); //make player transparent.
