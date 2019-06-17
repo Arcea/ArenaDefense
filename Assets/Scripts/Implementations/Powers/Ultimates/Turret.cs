@@ -12,6 +12,7 @@ public class Turret : Power
 
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        GameObject newPlaceable = Instantiate((GameObject)Resources.Load("Turret"), new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) + Vector3.right * 4, this.transform.rotation);
+        newPlaceable.GetComponentInChildren<TurretPlaceable>().lifeTime = 10;
     }
 }
