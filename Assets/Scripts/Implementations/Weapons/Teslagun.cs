@@ -14,7 +14,7 @@ public class Teslagun : EnergyWeapon
         StartCoroutine(FireWeapon());
     }
 
-    void Start()
+    public Teslagun()
     {
         this.MaxCharge = 30;
         this.FireRate = 1;
@@ -58,6 +58,16 @@ public class Teslagun : EnergyWeapon
     public override void StopFire()
     {
         isActive = false;
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentCharge;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxCharge;
     }
 
     public override void Reload()

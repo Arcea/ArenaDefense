@@ -12,7 +12,7 @@ public class Nailgun : BallisticWeapon
         StartCoroutine(FireWeapon());
     }
 
-    void Start()
+    public Nailgun()
     {
         this.MaxClipSize = 15;
         this.FireRate = 0.50f;
@@ -35,6 +35,16 @@ public class Nailgun : BallisticWeapon
     public override void ModifyDamage(float modifier)
     {
         nail.Damage *= modifier;
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentClipSize;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxClipSize;
     }
 
     public override void Reload()

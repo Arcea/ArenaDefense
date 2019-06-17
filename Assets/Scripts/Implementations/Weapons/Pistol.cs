@@ -13,7 +13,7 @@ public class Pistol : BallisticWeapon
         StartCoroutine(FireWeapon());
     }
 
-    void Start()
+    public Pistol()
     {
         this.MaxClipSize = 10;
         this.FireRate = 1;
@@ -43,6 +43,16 @@ public class Pistol : BallisticWeapon
     public override void ModifyDamage(float modifier)
     {
         pistolBullet.Damage *= modifier;
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentClipSize;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxClipSize;
     }
 
     public override void Reload()
