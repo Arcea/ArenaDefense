@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca16f204ea64e3248b29992bb6537c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nail: {fileID: 37120315946179282, guid: 32419e872809dec4487cf24114f43cfd, type: 3}
+  nail: {fileID: -8050333027236896283, guid: 32419e872809dec4487cf24114f43cfd, type: 3}
   player: {fileID: 4462356938285836837}
 --- !u!82 &800049521430241453
 AudioSource:
@@ -1298,9 +1298,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  trigger: 0
   playerClass: {fileID: 5260503999106667080, guid: 7434252964447e34ca8c9738f46d8778,
     type: 3}
-  slider: {fileID: 0}
+  healthSlider: {fileID: 0}
+  ammoSlider: {fileID: 0}
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!50 &763054684451900709
 Rigidbody2D:
   serializedVersion: 4

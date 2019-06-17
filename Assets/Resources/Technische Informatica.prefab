@@ -336,9 +336,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  trigger: 0
   playerClass: {fileID: -6072375712991970603, guid: f87493912d78a5346bee858d39e600bd,
     type: 3}
-  slider: {fileID: 0}
+  healthSlider: {fileID: 0}
+  ammoSlider: {fileID: 0}
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!50 &6480427441078628503
 Rigidbody2D:
   serializedVersion: 4
@@ -910,7 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35af5997cdf6ce4408cc91d4e6c01e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistolBullet: {fileID: 37120315946179282, guid: 46b268e45dc7d394b9cb93bf46e46555,
+  pistolBullet: {fileID: 4752564426197800242, guid: 46b268e45dc7d394b9cb93bf46e46555,
     type: 3}
   player: {fileID: 845638851446696418}
 --- !u!82 &1955740149993732324

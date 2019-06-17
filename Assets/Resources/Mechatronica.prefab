@@ -1974,6 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  trigger: 0
   playerClass: {fileID: 6915481774723944714, guid: 9138c93400e73ab4bab791642185780a,
     type: 3}
   healthSlider: {fileID: 0}
@@ -2071,7 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c0852384416349967a2a4797eb7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rifleBullet: {fileID: 7680939450979248485, guid: 640953ee686dc014189266bff3e83c74,
+  rifleBullet: {fileID: 5284208875832291959, guid: 640953ee686dc014189266bff3e83c74,
     type: 3}
 --- !u!82 &7324043513407593296
 AudioSource:
@@ -2213,4 +2214,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6787698b85f226c48b8900c563c36144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rifle: {fileID: 0}
+  _rifle: {fileID: 7810834762576892037, guid: 3d64b38d1126b654486dc68635e28082, type: 3}
