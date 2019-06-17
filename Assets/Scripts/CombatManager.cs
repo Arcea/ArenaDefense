@@ -8,13 +8,13 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.health = 100;
+        this.health = 20;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(health + "Health of enemy");
+        //Debug.Log(health + "Health of enemy");
     }
 
     public void TakeDamage(float damage)

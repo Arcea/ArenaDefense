@@ -22,11 +22,13 @@ public class EnemyController : MonoBehaviour
     {
         stunned = false;
         players = GameObject.FindGameObjectsWithTag("Player");
-        
-        for (int i = 0; i < players.Length; i++)
-        {
-            targets.Add(players[i].GetComponent<Transform>());
-        }
+
+
+
+         for (int i = 0; i < players.Length; i++)
+         {
+        targets.Add(players[i].GetComponent<Transform>());
+            }
 
         closestTarget = targets[0];
         closestDistance = Vector2.Distance(transform.position, targets[0].position);

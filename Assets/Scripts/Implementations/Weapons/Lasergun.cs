@@ -8,6 +8,7 @@ public class Lasergun : EnergyWeapon
     public GameObject player;
     private bool laserBeamActive = false;
     private GameObject newLaser;
+    private AudioSource audioSource;
 
     public override void Fire()
     {
@@ -39,6 +40,7 @@ public class Lasergun : EnergyWeapon
 
     void Start()
     {
+        this.audioSource = GetComponent<AudioSource>();
         this.MaxCharge = 125;
         this.FireRate = 1;
         newLaser = Instantiate(laserBeam, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);

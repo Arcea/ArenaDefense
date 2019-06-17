@@ -19,8 +19,15 @@ public class Pistol : BallisticWeapon
         this.FireRate = 1;
     }
 
+    void Update()
+    {
+        gameObject.SetActive(true);
+        Debug.Log(gameObject.activeInHierarchy);
+    }
+
     IEnumerator FireWeapon()
     {
+
         if (CurrentClipSize > 0 && allowFire)
         {
             GetComponent<AudioSource>().Play();
@@ -35,7 +42,9 @@ public class Pistol : BallisticWeapon
 
     public override void Reload()
     {
-        Invoke("ReloadWeapon", 2f);
+        var clip = Resources.Load("Audio/pistolReload") as AudioClip;
+        GetComponent<AudioSource>().PlayOneShot(clip);
+        Invoke("ReloadWeapon", 0.5f);
     }
 
     private void ReloadWeapon()

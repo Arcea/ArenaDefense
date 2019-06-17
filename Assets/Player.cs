@@ -40,6 +40,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public CharacterScript GetCharacter()
+    {
+        return character;
+    }
+
+
     public void SetController(int controller)
     {
         this.controller = controller;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5416403548846197253}
   - component: {fileID: 316255254146204393}
-  - component: {fileID: -9144905936581237775}
+  - component: {fileID: 7320795796611407058}
   m_Layer: 0
   m_Name: LaserRifle
   m_TagString: Untagged
@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserBeam: {fileID: 6627681469682093650, guid: 71c04a554f6e3a849a8a4ce6d37957b0,
     type: 3}
-  player: {fileID: -6069821042123877653, guid: 7c91f5e14d29224419f08e98c02e6626, type: 3}
---- !u!82 &-9144905936581237775
+  player: {fileID: 0}
+  audioSource: {fileID: 7320795796611407058}
+--- !u!82 &7320795796611407058
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +58,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 14d1165fcda87314ca3f4c96d2e38546, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e7f6324071f51d44b9e2639187840b97, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

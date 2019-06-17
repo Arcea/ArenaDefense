@@ -23,7 +23,8 @@ public class CharacterScript : MonoBehaviour
             new Character("Programmer", "Sloth", "Informatica"),
             new Character("Mechatronica", "Parody", "Mechatronica"),
             new Character("ElectroTechniek", "Nikola", "Electro Techniek"),
-            new Character("TechnischeInformatica", "Cipher", "Technische Informatica")
+            new Character("TechnischeInformatica", "Cipher", "Technische Informatica"),
+            new Character("Werktuigbouwkunde", "Bullseye", "Werktuigbouwkunde")
         };
 
         currentCharacter = new Character("Programmer", "Press A to join", "");
