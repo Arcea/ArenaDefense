@@ -260,7 +260,7 @@ PrefabInstance:
         type: 3}
       propertyPath: energyBall
       value: 
-      objectReference: {fileID: 2106468288693560729, guid: a94d5e403147e5a448aaf6e0ad463299,
+      objectReference: {fileID: 2106468288693560728, guid: a94d5e403147e5a448aaf6e0ad463299,
         type: 3}
     - target: {fileID: 5598791485050863271, guid: 4f2e7df89d1be0c40889e87bbe2c2f72,
         type: 3}

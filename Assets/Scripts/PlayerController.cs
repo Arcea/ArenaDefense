@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     //Fire controls, added for completness sake. Might need to be moved
     private string PrimaryFire = "ButtonA_P";
-    private string SpecialPower = "Fire2_P";
+    private string SpecialPower = "LeftTrigger_P";
 
     private float trigger;
     private Player currentPlayer;
@@ -31,10 +31,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
         menu.enabled = false;
     }
@@ -62,16 +58,22 @@ public class PlayerController : MonoBehaviour
         }
 
         trigger = Input.GetAxis(triggerAxis + currentController);
+        float leftTrigger = Input.GetAxis(SpecialPower + currentController);
         
 
         if (trigger != 0)
         {
-            Debug.Log("Primary Fire");
+            //Debug.Log("Primary Fire");
             Shoot();
         }
         else
         {
             GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().StopFire();
+        }
+
+        if (leftTrigger != 0)
+        {
+            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Power>().Activate();
         }
 
         //if(Input.GetButtonDown(SpecialPower)){

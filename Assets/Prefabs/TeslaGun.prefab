@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a49c128c5335b4cb693c77c1a18c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyBall: {fileID: 0}
+  energyBall: {fileID: 2106468288693560728, guid: a94d5e403147e5a448aaf6e0ad463299,
+    type: 3}
   player: {fileID: 0}
