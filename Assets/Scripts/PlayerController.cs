@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         healthSlider.value = playerClass.Health;
-        ammoText.text = GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getCurrentAmmo() + " / " + GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getMaxAmmo();
+        ammoText.text = (int) GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getCurrentAmmo() + " / " + (int) GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getMaxAmmo();
         ammoSlider.value = GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getCurrentAmmo();
         Vector3 move = new Vector3(Input.GetAxis(horizontal + currentController), Input.GetAxis(vertical + currentController), 0);
         transform.position += move * speed * Time.deltaTime;

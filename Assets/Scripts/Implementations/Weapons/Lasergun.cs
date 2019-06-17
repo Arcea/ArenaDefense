@@ -41,9 +41,7 @@ public class Lasergun : EnergyWeapon
     {
         this.MaxCharge = 125;
         this.FireRate = 1;
-        newLaser = Instantiate(laserBeam.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
         CurrentCharge = MaxCharge;
-        newLaser.SetActive(false);
     }
 
     void Update()
