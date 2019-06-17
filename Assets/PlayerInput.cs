@@ -48,6 +48,7 @@ public class PlayerInput : MonoBehaviour
         if (canSwitchCharacter)
         {
             canSwitchCharacter = false;
+            scrollPos = 1;
 
             if (direction > 0)
             {
