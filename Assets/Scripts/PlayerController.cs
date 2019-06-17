@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
     private string Reload = "ButtonA_P";
     private string SpecialPower = "LeftTrigger_P";
     public float trigger;
+
     private Player currentPlayer;
     private int currentController;
-
 
     public PlayerClass playerClass;
 
@@ -31,14 +31,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //agent = GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
-        //agent.updateUpAxis = false;
-
-      //  menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
-        //menu.enabled = false;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
 
         ReloadWeapon();
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+        menu.enabled = false;
     }
 
     public void SetController(int controller)
