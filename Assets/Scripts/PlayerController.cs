@@ -15,8 +15,10 @@ public class PlayerController : MonoBehaviour
     private string triggerAxis = "RightTrigger_P";
 
     //Fire controls, added for completness sake. Might need to be moved
-    private string Reload = "ButtonA_P";
+
+    private string PrimaryFire = "ButtonA_P";
     private string SpecialPower = "LeftTrigger_P";
+    private string Reload = "ButtonA_P";
     public float trigger;
 
     private Player currentPlayer;
@@ -31,10 +33,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-
         ReloadWeapon();
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
         menu.enabled = false;
@@ -43,7 +41,6 @@ public class PlayerController : MonoBehaviour
     public void SetController(int controller)
     {
         currentController = controller;
-        Debug.Log(controller);
     }
 
     // Update is called once per frame
@@ -63,14 +60,8 @@ public class PlayerController : MonoBehaviour
             ReloadWeapon();
         }
 
-        float leftTrigger = Input.GetAxis(SpecialPower + currentController);
-
-        if (leftTrigger != 0)
-        {
-            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Power>().Activate();
-        }
-
         trigger = Input.GetAxis(triggerAxis + currentController);
+        float leftTrigger = Input.GetAxis(SpecialPower + currentController);
         
 
         if (trigger != 0)
@@ -80,6 +71,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().StopFire();
+        }
+
+        if (leftTrigger != 0)
+        {
+            GetComponentInChildren<PlayerClass>().GetComponentInChildren<Power>().Activate();
         }
     }
 

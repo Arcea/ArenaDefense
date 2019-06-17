@@ -18,4 +18,9 @@ public class Informatica : PlayerClass
         this.Ability = _artifacting;
         this.Ultimate = _hacking;
     }
+
+    private void Start()
+    {
+        _hacking = gameObject.AddComponent<Hacking>();
+    }
 }
