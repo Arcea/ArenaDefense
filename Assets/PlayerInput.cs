@@ -73,7 +73,8 @@ public class PlayerInput : MonoBehaviour
         if (direction > 0)
         {
             scrollPos += 0.015;
-        } else
+        }
+        else
         {
             scrollPos -= 0.015;
         }
