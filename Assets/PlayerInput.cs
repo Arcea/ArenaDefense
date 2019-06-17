@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     private int inputNumber = -1;
     private Player player;
     private bool canSwitchCharacter = true;
+    private double scrollPos = 1;
 
     // input strings
 
@@ -35,15 +36,10 @@ public class PlayerInput : MonoBehaviour
             StartCoroutine(SwitchTargetRoutine(coolDownUntilNextSwitch, -1));
         }
 
-        if (Input.GetAxis("VerticalRotation_P" + inputNumber) > 0)
+        var verticalAxis = Input.GetAxis("VerticalRotation_P" + inputNumber);
+        if (verticalAxis != 0)
         {
-            // up
-            StartCoroutine(ScrollRoutine(coolDownUntilNextSwitch, 1));
-        }
-        else if (Input.GetAxis("VerticalRotation_P" + inputNumber) < 0)
-        {
-            // down
-            StartCoroutine(ScrollRoutine(coolDownUntilNextSwitch, -1));
+            StartCoroutine(ScrollRoutine(coolDownUntilNextScroll, verticalAxis));
         }
     }
 
@@ -71,17 +67,27 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    IEnumerator ScrollRoutine(float duration, int direction)
+    IEnumerator ScrollRoutine(float duration, float direction)
     {
         if (direction > 0)
         {
-            GetComponentInChildren<CharacterScript>().ScrollLoreDown();
-        }
-        else
+            scrollPos += 0.015;
+        } else
         {
-            GetComponentInChildren<CharacterScript>().ScrollLoreUp();
+            scrollPos -= 0.015;
         }
 
+        if (scrollPos > 1)
+        {
+            scrollPos = 1;
+        }
+
+        if (scrollPos < 0)
+        {
+            scrollPos = 0;
+        }
+
+        GetComponentInChildren<CharacterScript>().ScrollLore(scrollPos);
         yield return new WaitForSeconds(duration);
     }
 
