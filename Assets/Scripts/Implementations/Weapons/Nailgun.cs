@@ -14,8 +14,9 @@ public class Nailgun : BallisticWeapon
 
     void Start()
     {
-        this.MaxClipSize = 5;
+        this.MaxClipSize = 15;
         this.FireRate = 0.50f;
+        this.CurrentClipSize = MaxClipSize;
     }
 
     IEnumerator FireWeapon()

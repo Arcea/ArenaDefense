@@ -13,9 +13,9 @@ public class BattleMusicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameObject.FindGameObjectWithTag("Music").GetComponent<MainMenuClickScript>().IsPlaying())
-        {
-            GetComponent<AudioSource>().Play();
-        }
+        //if (!GameObject.FindGameObjectWithTag("Music").GetComponent<MainMenuClickScript>().IsPlaying())
+        //{
+        //    GetComponent<AudioSource>().Play();
+        //}
     }
 }

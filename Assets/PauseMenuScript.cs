@@ -34,7 +34,7 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (menu.enabled)
+        if (paused)
         {
             if (Input.GetButtonDown(start))
             {
@@ -66,17 +66,9 @@ public class PauseMenuScript : MonoBehaviour
         }
         else
         {
-            // start button
-            if (Input.GetButtonDown(start))
+            if (Input.GetButtonDown(start) && Time.timeScale > 0)
             {
-                if (paused)
-                {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
+                Pause();
             }
         }
     }

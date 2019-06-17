@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    public float rotationspeed = 15f;
+
     private Transform closestTarget;
     private float closestDistance;
     private Vector3 velocity;
@@ -55,6 +57,12 @@ public class EnemyController : MonoBehaviour
                 closestTarget = target;
             }
         }
+
+        //Rotate towards closest target
+        Vector2 direction = closestTarget.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationspeed);
 
         if (stunned == false)
         {
