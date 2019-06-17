@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private int controller = -1;
     private PlayerInput input;
     private bool ready = false;
+    private bool canReady = true;
     private CharacterScript character;
 
 
@@ -29,14 +30,26 @@ public class Player : MonoBehaviour
     {
         if (controller != -1 && Input.GetButtonDown("ButtonA_P" + controller))
         {
+            if (!canReady) return;
+
             ready = true;
-            character.ToggleReady(true);
+            character.ToggleReady(ready);
         }
 
         if (controller != -1 && Input.GetButtonDown("ButtonB_P" + controller))
         {
+            if (!canReady) return;
+
             ready = false;
-            character.ToggleReady(false);
+            character.ToggleReady(ready);
+        }
+
+        if (controller != -1 && Input.GetButtonDown("ButtonY_P" + controller))
+        {
+            ready = false;
+            character.ToggleReady(ready);
+
+            canReady = !character.ToggleLore();
         }
     }
 

@@ -17,27 +17,37 @@ public class PlayerController : MonoBehaviour
     //Fire controls, added for completness sake. Might need to be moved
     private string PrimaryFire = "ButtonA_P";
     private string SpecialPower = "Fire2_P";
+
     private float trigger;
     private Player currentPlayer;
+
     private int currentController;
     private bool canTakeDamage = true;
-
 
     public PlayerClass playerClass;
 
     private bool paused = false;
     private Canvas menu;
+    public UnityEngine.UI.Slider slider;
+    private int uiXPosition;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        //agent = GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
-        //agent.updateUpAxis = false;
+        Transform canvas = this.transform.Find("Canvas");
+        Transform panel = canvas.Find("Panel");
+        panel.transform.position = new Vector3(uiXPosition, 80, 0);
+        slider = panel.Find("Health").GetComponent<UnityEngine.UI.Slider>();
+        slider.value = 500;
 
-      //  menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
-        //menu.enabled = false;
+        menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+        menu.enabled = false;
+    }
+
+    public void SetUIPosition(int x)
+    {
+        uiXPosition = x;
     }
 
     public void SetController(int controller)
@@ -74,6 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().StopFire();
         }
+
         //if(Input.GetButtonDown(SpecialPower)){
         //    Debug.Log("UNLIMITED POWAH");
         //}
