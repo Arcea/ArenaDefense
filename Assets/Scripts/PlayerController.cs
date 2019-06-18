@@ -183,7 +183,6 @@ public class PlayerController : MonoBehaviour
             canTakeDamage = false;
             playerClass.Health -= 10;
             healthText.text = playerClass.Health + " / " + playerClass.MaxHealth;
-
             if (playerClass.Health <= 0)
             {
                 Destroy(gameObject);

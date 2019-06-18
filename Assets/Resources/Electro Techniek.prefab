@@ -460,14 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   trigger: 0
-  playerClass: {fileID: -1942759019353528286, guid: 59974849e8c0c004694c151c2288d3ae,
-    type: 3}
-  healthSlider: {fileID: 0}
-  ammoSlider: {fileID: 0}
-  powerSlider: {fileID: 0}
-  healthText: {fileID: 0}
-  ammoText: {fileID: 0}
-  powerText: {fileID: 0}
+  playerClass: {fileID: 7256488993574374902}
 --- !u!50 &5175958875427219599
 Rigidbody2D:
   serializedVersion: 4
