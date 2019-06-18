@@ -8,7 +8,6 @@ public class Lasergun : EnergyWeapon
     public GameObject player;
     private GameObject newLaser;
     private AudioSource audioSource;
-
     public override void Fire()
     {
         if (CurrentCharge > 10)

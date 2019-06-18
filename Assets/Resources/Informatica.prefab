@@ -1669,6 +1669,7 @@ MonoBehaviour:
   laserBeam: {fileID: 1462543041223120480, guid: 71c04a554f6e3a849a8a4ce6d37957b0,
     type: 3}
   player: {fileID: 5331592725126833692}
+  weaponPos: {fileID: 0}
 --- !u!82 &5331592725116945429
 AudioSource:
   m_ObjectHideFlags: 0
