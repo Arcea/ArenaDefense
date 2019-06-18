@@ -22,12 +22,12 @@ public class FrenzyTimedEffect : TimedEffect
     protected override void EndEffect()
     {
         this.gameObject.tag = "enemy";
-        List<GameObject> enemies = GameObject.FindGameObjectsWithTag("Player").ToList();
+        List<GameObject> players = GameObject.FindGameObjectsWithTag("Player").ToList();
         List<Transform> targets = new List<Transform>();
 
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < players.Count; i++)
         {
-            targets.Add(enemies[i].GetComponent<Transform>());
+            targets.Add(players[i].GetComponent<Transform>());
         }
 
         gameObject.GetComponent<EnemyController>().targets = targets;

@@ -6,8 +6,6 @@ public class TriggerScript : MonoBehaviour
 {
     void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Particle trigger");
-        Debug.Log(other);
         if (other.gameObject.tag == "enemy")
         {
             other.gameObject.AddComponent<FrenzyTimedEffect>();

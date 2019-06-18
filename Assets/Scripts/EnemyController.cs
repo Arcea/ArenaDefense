@@ -73,4 +73,24 @@ public class EnemyController : MonoBehaviour
            agent.isStopped = true;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (this.gameObject.tag == "FrenziedEnemy")
+        {
+            if (collision.gameObject.tag == "enemy")
+            {
+                gameObject.GetComponent<CombatManager>().TakeDamage(10);
+            }
+        }
+
+        if (this.gameObject.tag == "enemy")
+        {
+            if (collision.gameObject.tag == "FrenziedEnemy")
+            {
+                Debug.Log("Enemy hit Frenziedenemy");
+                gameObject.GetComponent<CombatManager>().TakeDamage(10);
+            }
+        }
+    }
 }
