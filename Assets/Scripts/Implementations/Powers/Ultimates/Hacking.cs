@@ -7,6 +7,8 @@ public class Hacking : Power
     private GameObject mainCamera;
     private GameObject[] players;
     private float damageMultiplier = 2;
+    private float glitchDuration = 1.5f;
+    private float buffDuration = 10f;
 
     public Hacking()
     {
@@ -30,7 +32,7 @@ public class Hacking : Power
         if (IsReady)
         {
             IsReady = false;
-            //Do ultimate
+            //Apply screen glitch
             var script = mainCamera.GetComponent<Kino.AnalogGlitch>();
             script.enabled = true;
             script.scanLineJitter = 0.35f;
@@ -38,20 +40,20 @@ public class Hacking : Power
             script.horizontalShake = 0.035f;
             script.colorDrift = 0.4f;
 
-            //TODO: Give team damage boost
+            yield return new WaitForSeconds(glitchDuration);
+            script.enabled = false;
+
+            //Give team damage boost for given duration
             foreach (var player in players)
             {
                 var weapon = (player.GetComponentInChildren<Weapon>().GetComponent<MonoBehaviour>() as Weapon);
                 weapon.ModifyDamage(damageMultiplier);
             }
 
-            yield return new WaitForSeconds(1.5f);
-            script.enabled = false;
-            Debug.Log("Filter disabled");
-            yield return new WaitForSeconds(8.5f);
+            yield return new WaitForSeconds(buffDuration);
             Debug.Log("Buff removed");
 
-            //TODO: Remove team damage boost
+            //Remove team damage boost
             foreach (var player in players)
             {
                 var weapon = (player.GetComponentInChildren<Weapon>().GetComponent<MonoBehaviour>() as Weapon);
