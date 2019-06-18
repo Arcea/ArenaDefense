@@ -27,7 +27,7 @@ public class Nailgun : BallisticWeapon
             allowFire = false;
             GameObject newBullet = Instantiate(nail.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             CurrentClipSize--;
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(0.1f);
             allowFire = true;
         }
     }
