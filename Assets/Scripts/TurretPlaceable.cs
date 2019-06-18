@@ -59,6 +59,7 @@ public class TurretPlaceable : Placeable
     {
         if (allowFire)
         {
+            GetComponent<AudioSource>().Play();
             allowFire = false;
             var rotation = transform.rotation;
             spr.sprite = sprites[1];
