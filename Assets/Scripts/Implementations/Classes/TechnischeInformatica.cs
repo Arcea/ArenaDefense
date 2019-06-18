@@ -6,7 +6,7 @@ public class TechnischeInformatica : PlayerClass
 {
     private Weapon _pistol = new Pistol();
     private Power _frenzy = new FrenzyBomb();
-    //private Power _teamShield = new TeamShield();
+
 
     public TechnischeInformatica()
     {
