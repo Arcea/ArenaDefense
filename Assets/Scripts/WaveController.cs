@@ -19,6 +19,7 @@ public class WaveController : MonoBehaviour
     public Text waveCount;
     public Text countdown;
     public Text deadcountdown;
+    public Text endScore;
     float countDownTime;
 
     //TODO: Add Score based on enemies
@@ -59,6 +60,8 @@ public class WaveController : MonoBehaviour
     void DeadScene()
     {
         Time.timeScale = 0;
+        endScore.text = "Score: " + GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreController>().GetScore();
+
         StartCoroutine(Reset());
     }
 

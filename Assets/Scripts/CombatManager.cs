@@ -5,6 +5,7 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     private float health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,10 @@ public class CombatManager : MonoBehaviour
         if (health - damage <= 0)
         {
             Destroy(gameObject);
+            if(gameObject.tag == "enemy")
+            {
+                GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreController>().AddScore(25);
+            }
         }
         else
         {
