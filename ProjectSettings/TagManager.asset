@@ -12,6 +12,8 @@ TagManager:
   - WaveMenu
   - CountDown
   - FrenziedEnemy
+  - CountDownDed
+  - DeadMenu
   layers:
   - Default
   - TransparentFX

@@ -720,14 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   trigger: 0
-  playerClass: {fileID: 6915481774723944714, guid: 9138c93400e73ab4bab791642185780a,
-    type: 3}
-  healthSlider: {fileID: 0}
-  ammoSlider: {fileID: 0}
-  powerSlider: {fileID: 0}
-  healthText: {fileID: 0}
-  ammoText: {fileID: 0}
-  powerText: {fileID: 0}
+  playerClass: {fileID: 317985218867931994}
 --- !u!50 &1576984062877594738
 Rigidbody2D:
   serializedVersion: 4
@@ -1040,7 +1033,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9ad74539a23bd4a4faf68a4794bade08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f760eed717fcb54e92e4c1ab0faa2db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

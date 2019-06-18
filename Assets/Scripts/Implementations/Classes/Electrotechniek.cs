@@ -19,4 +19,9 @@ public class Electrotechniek : PlayerClass
         //this.Ability = _teslaCoil;
         this.Ultimate = _teslaCoil;
     }
+
+    void Start()
+    {
+        _teslaCoil = gameObject.AddComponent<TeslaCoil>();
+    }
 }
