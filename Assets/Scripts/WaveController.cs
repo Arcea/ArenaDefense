@@ -36,9 +36,11 @@ public class WaveController : MonoBehaviour
     void Update()
     {
         waveText.text = "Current wave: " + currentWave;
-        remainingEnemies.text = "Enemies remaining: " + GameObject.FindGameObjectsWithTag("enemy").Length;
+        remainingEnemies.text = "Enemies remaining: " + (GameObject.FindGameObjectsWithTag("enemy").Length +
+            GameObject.FindGameObjectsWithTag("FrenziedEnemy").Length);
+        
 
-        if(GameObject.FindGameObjectsWithTag("enemy").Length <= 0)
+        if(GameObject.FindGameObjectsWithTag("enemy").Length <= 0 && GameObject.FindGameObjectsWithTag("FrenziedEnemy").Length <= 0)
         {
             currentWave++;
             NextWave();

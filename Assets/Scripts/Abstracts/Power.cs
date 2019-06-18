@@ -28,6 +28,5 @@ public abstract class Power : MonoBehaviour
     void Update()
     {
         currentTimeForCooldown += Time.deltaTime;
-        Debug.Log(currentTimeForCooldown);
     }
 }

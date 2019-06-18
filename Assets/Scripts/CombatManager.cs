@@ -19,6 +19,7 @@ public class CombatManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Instantiate((GameObject)Resources.Load("OnHitParticle"), gameObject.transform);
         if (health - damage <= 0)
         {
             Destroy(gameObject);

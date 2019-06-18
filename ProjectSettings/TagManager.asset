@@ -11,6 +11,7 @@ TagManager:
   - Spawner
   - WaveMenu
   - CountDown
+  - FrenziedEnemy
   layers:
   - Default
   - TransparentFX
