@@ -30,11 +30,15 @@ public class PlayerController : MonoBehaviour
 
     private bool paused = false;
     private Canvas menu;
+    
+
     public UnityEngine.UI.Slider healthSlider;
     public UnityEngine.UI.Slider ammoSlider;
+    public UnityEngine.UI.Slider powerSlider;
 
     public UnityEngine.UI.Text healthText;
     public UnityEngine.UI.Text ammoText;
+    public UnityEngine.UI.Text powerText;
 
     private int uiXPosition;
     
@@ -60,7 +64,16 @@ public class PlayerController : MonoBehaviour
         temp = temp.Find("Fill Area").GetComponent<Transform>();
         ammoText = temp.Find("Text").GetComponent<UnityEngine.UI.Text>();
 
+        powerSlider = panel.Find("Power").GetComponent<UnityEngine.UI.Slider>();
+        powerSlider.maxValue = GetComponentInChildren<PlayerClass>().Ultimate.Cooldown;
+        powerSlider.value = 0;
+
         ammoText.text = GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getCurrentAmmo() + " / " + GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getMaxAmmo();
+
+        temp = panel.Find("Power").GetComponent<Transform>();
+        temp = temp.Find("Fill Area").GetComponent<Transform>();
+        powerText = temp.Find("Text").GetComponent<UnityEngine.UI.Text>();
+        powerText.enabled = false;
 
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
         menu.enabled = false;
@@ -79,9 +92,36 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        try
+        {
+            var power = GetComponentInChildren<PlayerClass>().GetComponentInChildren<Power>();
+            var cooldown = Mathf.RoundToInt(power.Cooldown - power.currentTimeForCooldown);
+
+            if (cooldown > 0)
+            {
+                powerText.text = cooldown.ToString();
+                powerSlider.value = cooldown;
+                powerText.enabled = true;
+            }
+            else
+            {
+                powerSlider.value = 0;
+                powerText.enabled = false;
+            }
+        }
+        catch (System.Exception)
+        {
+            //
+        }
+
         healthSlider.value = playerClass.Health;
-        ammoText.text = (int) GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getCurrentAmmo() + " / " + (int) GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getMaxAmmo();
-        ammoSlider.value = GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getCurrentAmmo();
+
+        var currentAmmo = GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getCurrentAmmo();
+
+        ammoText.text = (int)currentAmmo + " / " + (int)GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().getMaxAmmo();
+        ammoSlider.value = currentAmmo;
+
+
         Vector3 move = new Vector3(Input.GetAxis(horizontal + currentController), Input.GetAxis(vertical + currentController), 0);
         transform.position += move * speed * Time.deltaTime;
 
@@ -143,7 +183,6 @@ public class PlayerController : MonoBehaviour
             canTakeDamage = false;
             playerClass.Health -= 10;
             healthText.text = playerClass.Health + " / " + playerClass.MaxHealth;
-
 
             if (playerClass.Health <= 0)
             {

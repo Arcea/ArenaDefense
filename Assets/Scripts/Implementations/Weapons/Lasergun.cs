@@ -47,7 +47,7 @@ public class Lasergun : EnergyWeapon
     {
         if (player.GetComponent<PlayerController>().trigger == 0)
         {
-            Debug.Log(CurrentCharge + "CurrentCharge");
+            //Debug.Log(CurrentCharge + "CurrentCharge");
             if (!newLaser.activeInHierarchy && CurrentCharge < MaxCharge)
             {
                 CurrentCharge += Time.deltaTime * 12;
