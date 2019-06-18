@@ -25,6 +25,7 @@ public class Teslagun : EnergyWeapon
     {
         if (CurrentCharge > 0 && allowFire && !isActive)
         {
+            GetComponent<AudioSource>().Play();
             allowFire = false;
             GameObject newBullet = Instantiate(energyBall.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             isActive = true;
