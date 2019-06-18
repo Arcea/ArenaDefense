@@ -7,6 +7,7 @@ public class TechnischeInformatica : PlayerClass
     private Weapon _pistol = new Pistol();
     private Power _frenzy = new FrenzyBomb();
 
+
     public TechnischeInformatica()
     {
         this.Name = "Cipher";
