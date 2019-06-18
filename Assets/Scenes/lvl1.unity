@@ -12245,6 +12245,11 @@ PrefabInstance:
       propertyPath: endScore
       value: 
       objectReference: {fileID: 611522653}
+    - target: {fileID: 57038334872533106, guid: 641e6f0226da8184d9df2d802481d570,
+        type: 3}
+      propertyPath: baseNumber
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641e6f0226da8184d9df2d802481d570, type: 3}
 --- !u!1 &1075829140
