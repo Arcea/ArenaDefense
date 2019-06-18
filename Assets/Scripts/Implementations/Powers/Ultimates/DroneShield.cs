@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class DroneShield : Power
 {
+    private GameObject drone;
+
+
     public DroneShield()
     {
         this.Type = PowerType.Ultimate;
-        this.Cooldown = 500f; //TBD
+        this.Cooldown = 90f; // 60s + 30s activation
     }
 
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        if (currentTimeForCooldown >= Cooldown)
+        {
+            drone = Instantiate((GameObject)Resources.Load("DroneShield"), new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) + Vector3.right, this.transform.rotation);
+            drone.gameObject.transform.SetParent(this.gameObject.transform.parent);
+            currentTimeForCooldown = 0;
+        }
     }
 }
