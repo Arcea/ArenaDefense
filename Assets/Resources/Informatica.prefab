@@ -1208,7 +1208,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9ad74539a23bd4a4faf68a4794bade08, type: 3}
+  m_Sprite: {fileID: -3249811009704380132, guid: da0ee0d3ea175f243aa58adfca11aa9e,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1437,7 +1438,6 @@ MonoBehaviour:
   laserBeam: {fileID: 1462543041223120480, guid: 71c04a554f6e3a849a8a4ce6d37957b0,
     type: 3}
   player: {fileID: 5331592725126833692}
-  weaponPos: {fileID: 0}
 --- !u!82 &5331592725116945429
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1632,14 +1632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   trigger: 0
-  playerClass: {fileID: 4703519376053211240, guid: 88157ca0edf524641a518fc7a0115973,
-    type: 3}
-  healthSlider: {fileID: 0}
-  ammoSlider: {fileID: 0}
-  powerSlider: {fileID: 0}
-  healthText: {fileID: 0}
-  ammoText: {fileID: 0}
-  powerText: {fileID: 0}
+  playerClass: {fileID: 5331592724701070677}
 --- !u!50 &5331592725126833694
 Rigidbody2D:
   serializedVersion: 4

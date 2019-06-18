@@ -16,11 +16,12 @@ public class TechnischeInformatica : PlayerClass
         this.Shield = 0f;
         this.Speed = 5f;
         this.Weapon = _pistol;
+        this.Ultimate = _frenzy;
+
     }
 
     void Start()
     {
         _frenzy = gameObject.AddComponent<FrenzyBomb>();
-        this.Ultimate = _frenzy;
     }
 }
