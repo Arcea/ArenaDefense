@@ -6,7 +6,6 @@ public class TechnischeInformatica : PlayerClass
 {
     private Weapon _pistol = new Pistol();
     private Power _frenzy = new FrenzyBomb();
-    private Power _teamShield = new TeamShield();
 
     public TechnischeInformatica()
     {
@@ -16,6 +15,10 @@ public class TechnischeInformatica : PlayerClass
         this.Speed = 5f;
         this.Weapon = _pistol;
         this.Ability = _frenzy;
-        this.Ultimate = _teamShield;
+    }
+
+    void Start()
+    {
+        _frenzy = gameObject.AddComponent<FrenzyBomb>();
     }
 }

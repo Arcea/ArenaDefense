@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,13 +9,13 @@ public class EnemyController : MonoBehaviour
     public float speed = 50;
 
     private GameObject[] players;
-    private List<Transform> targets = new List<Transform>();
+    public List<Transform> targets = new List<Transform>();
 
     private NavMeshAgent agent;
 
     public float rotationspeed = 15f;
 
-    private Transform closestTarget;
+    public Transform closestTarget;
     private float closestDistance;
     private Vector3 velocity;
     public bool stunned;
@@ -25,12 +26,10 @@ public class EnemyController : MonoBehaviour
         stunned = false;
         players = GameObject.FindGameObjectsWithTag("Player");
 
-
-
          for (int i = 0; i < players.Length; i++)
          {
-        targets.Add(players[i].GetComponent<Transform>());
-            }
+            targets.Add(players[i].GetComponent<Transform>());
+         }
 
         closestTarget = targets[0];
         closestDistance = Vector2.Distance(transform.position, targets[0].position);
