@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca16f204ea64e3248b29992bb6537c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nail: {fileID: 37120315946179282, guid: 32419e872809dec4487cf24114f43cfd, type: 3}
+  nail: {fileID: -8050333027236896283, guid: 32419e872809dec4487cf24114f43cfd, type: 3}
   player: {fileID: -6069821042123877653, guid: 7c91f5e14d29224419f08e98c02e6626, type: 3}
 --- !u!82 &376348127730813251
 AudioSource:

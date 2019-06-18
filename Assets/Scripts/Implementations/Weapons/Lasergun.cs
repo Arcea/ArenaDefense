@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lasergun : EnergyWeapon
 {
-    public GameObject laserBeam;
+    public Projectile laserBeam;
     public GameObject player;
     private GameObject newLaser;
     private AudioSource audioSource;
@@ -37,14 +37,11 @@ public class Lasergun : EnergyWeapon
         
     }
 
-    void Start()
+    public Lasergun()
     {
-        this.audioSource = GetComponent<AudioSource>();
         this.MaxCharge = 125;
         this.FireRate = 1;
         CurrentCharge = MaxCharge;
-        newLaser = Instantiate(laserBeam, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
-        newLaser.SetActive(false);
     }
 
     void Update()
@@ -57,6 +54,30 @@ public class Lasergun : EnergyWeapon
                 CurrentCharge += Time.deltaTime * 12;
             }
         }
+    }
+
+    public override void ModifyDamage(float modifier)
+    {
+        laserBeam.Damage *= modifier;
+        
+    }
+
+
+    void Start()
+    {
+        this.audioSource = GetComponent<AudioSource>();
+        newLaser = Instantiate(laserBeam.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
+        newLaser.SetActive(false);
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentCharge;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxCharge;
     }
 
     public override void Reload()

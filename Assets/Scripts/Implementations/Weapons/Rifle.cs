@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Rifle : BallisticWeapon
 {
-    public GameObject rifleBullet;
+    public Projectile rifleBullet;
     private bool allowFire = true;
+
+    public Rifle()
+    {
+        
+            this.MaxClipSize = 30f;
+            this.FireRate = 0.10f;
+    }
 
     public override void Fire()
     {
@@ -13,9 +20,8 @@ public class Rifle : BallisticWeapon
     }
 
     void Start()
-    {
-        this.MaxClipSize = 30;
-        this.FireRate = 0.10f;
+    { 
+
     }
 
     IEnumerator FireWeapon()
@@ -25,11 +31,16 @@ public class Rifle : BallisticWeapon
             Debug.Log("Firing Rifle");
             GetComponent<AudioSource>().Play();
             allowFire = false;
-            GameObject newBullet = Instantiate(rifleBullet, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), this.gameObject.transform.rotation);
+            GameObject newBullet = Instantiate(rifleBullet.gameObject, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), this.gameObject.transform.rotation);
             CurrentClipSize--;
             yield return new WaitForSeconds(FireRate);
             allowFire = true;
         }
+    }
+
+    public override void ModifyDamage(float modifier)
+    {
+        rifleBullet.Damage *= modifier;
     }
 
     public override void Reload()
@@ -37,6 +48,16 @@ public class Rifle : BallisticWeapon
         var clip = Resources.Load("Audio/rifleReload") as AudioClip;
         GetComponent<AudioSource>().PlayOneShot(clip);
         Invoke("ReloadWeapon", 0.7f);
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return this.CurrentClipSize;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return this.MaxClipSize;
     }
 
     private void ReloadWeapon()

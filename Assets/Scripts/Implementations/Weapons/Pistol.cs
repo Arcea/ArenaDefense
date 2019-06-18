@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pistol : BallisticWeapon
 {
-    public GameObject pistolBullet;
+    public Projectile pistolBullet;
     public GameObject player;
     private bool allowFire = true;
 
@@ -13,7 +13,7 @@ public class Pistol : BallisticWeapon
         StartCoroutine(FireWeapon());
     }
 
-    void Start()
+    public Pistol()
     {
         this.MaxClipSize = 10;
         this.FireRate = 1;
@@ -32,12 +32,27 @@ public class Pistol : BallisticWeapon
         {
             GetComponent<AudioSource>().Play();
             allowFire = false;
-            GameObject newBullet = Instantiate(pistolBullet, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
+            GameObject newBullet = Instantiate(pistolBullet.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             CurrentClipSize--;
             yield return new WaitForSeconds(FireRate);
             allowFire = true;
 
         }
+    }
+
+    public override void ModifyDamage(float modifier)
+    {
+        pistolBullet.Damage *= modifier;
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentClipSize;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxClipSize;
     }
 
     public override void Reload()

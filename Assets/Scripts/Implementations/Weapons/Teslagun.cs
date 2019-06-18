@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teslagun : EnergyWeapon
 {
-    public GameObject energyBall;
+    public Projectile energyBall;
     public GameObject player;
     private bool allowFire = true;
     private bool isActive = false;
@@ -14,7 +14,7 @@ public class Teslagun : EnergyWeapon
         StartCoroutine(FireWeapon());
     }
 
-    void Start()
+    public Teslagun()
     {
         this.MaxCharge = 30;
         this.FireRate = 1;
@@ -26,8 +26,8 @@ public class Teslagun : EnergyWeapon
         if (CurrentCharge > 0 && allowFire && !isActive)
         {
             allowFire = false;
+            GameObject newBullet = Instantiate(energyBall.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             isActive = true;
-            GameObject newBullet = Instantiate(energyBall, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             CurrentCharge--;
             yield return new WaitForSeconds(FireRate);
             allowFire = true;
@@ -50,9 +50,24 @@ public class Teslagun : EnergyWeapon
         }
     }
 
+    public override void ModifyDamage(float modifier)
+    {
+        energyBall.Damage *= modifier;
+    }
+
     public override void StopFire()
     {
         isActive = false;
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentCharge;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxCharge;
     }
 
     public override void Reload()
