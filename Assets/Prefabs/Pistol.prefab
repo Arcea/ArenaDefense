@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8026225092483646166}
-  - component: {fileID: 2943588890119317026}
+  - component: {fileID: 1712186885010657937}
   - component: {fileID: -9040936711098894173}
   m_Layer: 0
   m_Name: Pistol
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2943588890119317026
+--- !u!114 &1712186885010657937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35af5997cdf6ce4408cc91d4e6c01e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistolBullet: {fileID: 37120315946179282, guid: 46b268e45dc7d394b9cb93bf46e46555,
+  pistolBullet: {fileID: 4752564426197800242, guid: 46b268e45dc7d394b9cb93bf46e46555,
     type: 3}
-  player: {fileID: 7848153893618354468, guid: 7c91f5e14d29224419f08e98c02e6626, type: 3}
+  player: {fileID: 5753729104266221592, guid: 155ee37c92506274ab155fedc321c4a2, type: 3}
 --- !u!82 &-9040936711098894173
 AudioSource:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2d6095b564749d344a63fec9fe810bb1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.515
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -10,7 +10,7 @@ public class EnergyBall : Projectile
     {
         DamageType = DamageType.Bleeding;
         //To be changed later.
-        Damage = 0;
+        Damage = 5;
         Speed = 100f;
     }
 

@@ -8,19 +8,25 @@ public class PauseMenuScript : MonoBehaviour
     public Text resume;
     public Text exit;
 
+    private int controller;
     private Text currentSelected;
-    private string vertical = "Vertical_P1";
+    private string vertical = "Vertical_P"; 
     private Color32 avansRed = new Color32(198, 0, 42, 255);
     private Canvas menu;
-    private string ButtonA = "ButtonA_P1";
-    private string start = "Start_P1";
+    private string ButtonA = "ButtonA_P";
+    private string start = "Start_P";
     private bool paused = false;
-
 
     // Start is called before the first frame update
     void Start()
     {
+        controller = Assets.SceneTransfer.players[0].GetController();
+        vertical += controller;
+        ButtonA += controller;
+        start += controller;
+
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Canvas>();
+        menu.enabled = false;
         currentSelected = resume;
         currentSelected.color = avansRed;
     }
@@ -28,8 +34,7 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (menu.enabled)
+        if (paused)
         {
             if (Input.GetButtonDown(start))
             {
@@ -61,17 +66,9 @@ public class PauseMenuScript : MonoBehaviour
         }
         else
         {
-            // start button
-            if (Input.GetButtonDown(start))
+            if (Input.GetButtonDown(start) && Time.timeScale > 0)
             {
-                if (paused)
-                {
-                    Resume();
-                }
-                else
-                {
-                    Pause();
-                }
+                Pause();
             }
         }
     }

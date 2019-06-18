@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c0852384416349967a2a4797eb7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rifleBullet: {fileID: 0}
-  player: {fileID: 0}
+  rifleBullet: {fileID: 5284208875832291959, guid: 640953ee686dc014189266bff3e83c74,
+    type: 3}
 --- !u!82 &-6930841937166538870
 AudioSource:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cae6334091b3c664e9f9b6abe0b577b2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

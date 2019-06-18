@@ -139,7 +139,7 @@ namespace UnityEngine.AI
             var buildSettings = NavMesh.GetSettingsByID(m_AgentTypeID);
             if (buildSettings.agentTypeID == -1)
             {
-                Debug.LogWarning("No build settings for agent type ID " + agentTypeID, this);
+                //Debug.LogWarning("No build settings for agent type ID " + agentTypeID, this);
                 buildSettings.agentTypeID = m_AgentTypeID;
             }
 
@@ -453,7 +453,7 @@ namespace UnityEngine.AI
         {
             if (UnshareNavMeshAsset())
             {
-                Debug.LogWarning("Duplicating NavMeshSurface does not duplicate the referenced navmesh data", this);
+                //Debug.LogWarning("Duplicating NavMeshSurface does not duplicate the referenced navmesh data", this);
                 m_NavMeshData = null;
             }
 

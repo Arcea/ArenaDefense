@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Nailgun : BallisticWeapon
 {
-    public GameObject nail;
+    public Projectile nail;
     public GameObject player;
     private bool allowFire = true;
     public override void Fire()
@@ -12,10 +12,11 @@ public class Nailgun : BallisticWeapon
         StartCoroutine(FireWeapon());
     }
 
-    void Start()
+    public Nailgun()
     {
-        this.MaxClipSize = 5;
+        this.MaxClipSize = 15;
         this.FireRate = 0.50f;
+        this.CurrentClipSize = MaxClipSize;
     }
 
     IEnumerator FireWeapon()
@@ -24,11 +25,26 @@ public class Nailgun : BallisticWeapon
         {
             GetComponent<AudioSource>().Play();
             allowFire = false;
-            GameObject newBullet = Instantiate(nail, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
+            GameObject newBullet = Instantiate(nail.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), player.transform.rotation);
             CurrentClipSize--;
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(0.1f);
             allowFire = true;
         }
+    }
+
+    public override void ModifyDamage(float modifier)
+    {
+        nail.Damage *= modifier;
+    }
+
+    public override float getCurrentAmmo()
+    {
+        return CurrentClipSize;
+    }
+
+    public override float getMaxAmmo()
+    {
+        return MaxClipSize;
     }
 
     public override void Reload()

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BleedTimedEffect : TimedEffect
 {
-    private int damage = 1;
+    private int damage = 10;
 
     protected override void ApplyEffect()
     {
         gameObject.GetComponent<CombatManager>().TakeDamage(damage);
-        Debug.Log("I am bleeding now");
+        //Debug.Log("I am bleeding now");
     }
 }

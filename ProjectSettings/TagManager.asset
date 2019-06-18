@@ -8,6 +8,13 @@ TagManager:
   - enemy
   - Music
   - Menu
+  - Spawner
+  - WaveMenu
+  - CountDown
+  - FrenziedEnemy
+  - CountDownDed
+  - DeadMenu
+  - Score
   layers:
   - Default
   - TransparentFX

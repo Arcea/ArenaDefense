@@ -14,4 +14,5 @@ public class Dash : Power
     {
         throw new System.NotImplementedException();
     }
+
 }

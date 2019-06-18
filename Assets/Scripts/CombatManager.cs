@@ -5,10 +5,11 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     private float health;
+
     // Start is called before the first frame update
     void Start()
     {
-        this.health = 100;
+        this.health = 20;
     }
 
     // Update is called once per frame
@@ -19,9 +20,14 @@ public class CombatManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Instantiate((GameObject)Resources.Load("OnHitParticle"), gameObject.transform);
         if (health - damage <= 0)
         {
             Destroy(gameObject);
+            if(gameObject.tag == "enemy")
+            {
+                GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreController>().AddScore(25);
+            }
         }
         else
         {

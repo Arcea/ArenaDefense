@@ -19,7 +19,7 @@ public class PlayerAssigner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 16; i++)
         {
             if (controllers.Contains(i))
             {
@@ -28,7 +28,7 @@ public class PlayerAssigner : MonoBehaviour
             }
 
             if (Input.GetButtonDown(joinString + i)){
-
+                //Debug.Log(i);
                 AssignController(i);
                 break;
             }
@@ -37,7 +37,7 @@ public class PlayerAssigner : MonoBehaviour
 
     void AssignController(int controller)
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i <= players.Length; i++)
         {
             if(players[i].GetController() == -1)
             {

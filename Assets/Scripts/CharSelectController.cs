@@ -44,7 +44,6 @@ public class CharSelectController : MonoBehaviour
         //Start game
         if (Input.GetButtonDown(gameStart))
         {
-            Debug.Log("Starting game..");
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
 
@@ -53,37 +52,37 @@ public class CharSelectController : MonoBehaviour
         {
             JoinPlayer();
             Controller1 = true;
-            Debug.Log("Controller 1 Joined");
+            //Debug.Log("Controller 1 Joined");
         } else if (Input.GetButton(Player2Join) && !Controller2)
         {
             JoinPlayer();
             Controller2 = true;
-            Debug.Log("Controller 2 Joined");
+            //Debug.Log("Controller 2 Joined");
         }  else if (Input.GetButton(Player3Join) && !Controller3)
         {
             JoinPlayer();
             Controller3 = true;
-            Debug.Log("Controller 3 Joined");
+            //Debug.Log("Controller 3 Joined");
         }  else if (Input.GetButton(Player3Join) && !Controller4)
         {
             JoinPlayer();
             Controller4 = true;
-            Debug.Log("Controller 4 Joined");
+            //Debug.Log("Controller 4 Joined");
         }
         //Controller check ready
-        if(Input.GetButtonDown(Player1Join) && Controller1)
-        {
-            Debug.Log("Controller 1 Ready");
-        } else if (Input.GetButton(Player2Join) && Controller2)
-        {
-            Debug.Log("Controller 2 Ready");
-        }  else if (Input.GetButton(Player3Join) && Controller3)
-        {
-            Debug.Log("Controller 3 Ready");
-        }  else if (Input.GetButton(Player3Join) && Controller4)
-        {
-            Debug.Log("Controller 4 Ready");
-        }
+        //if(Input.GetButtonDown(Player1Join) && Controller1)
+        //{
+        //    Debug.Log("Controller 1 Ready");
+        //} else if (Input.GetButton(Player2Join) && Controller2)
+        //{
+        //    Debug.Log("Controller 2 Ready");
+        //}  else if (Input.GetButton(Player3Join) && Controller3)
+        //{
+        //    Debug.Log("Controller 3 Ready");
+        //}  else if (Input.GetButton(Player3Join) && Controller4)
+        //{
+        //    Debug.Log("Controller 4 Ready");
+        //}
     }
 
     //Players
