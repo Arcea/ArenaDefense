@@ -11,6 +11,8 @@ TagManager:
   - Spawner
   - WaveMenu
   - CountDown
+  - GameOver
+  - DedCountDown
   layers:
   - Default
   - TransparentFX

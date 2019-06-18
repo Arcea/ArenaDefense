@@ -17,7 +17,10 @@ public class WaveController : MonoBehaviour
     private Canvas nextWavePanel;
     public Text waveCount;
     public Text countdown;
+    public Text dedCountdown;
     float countDownTime;
+
+    private Canvas gameOverPanel;
 
     //TODO: Add Score based on enemies
     //TODO: Add max based on spawner
@@ -26,7 +29,9 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         nextWavePanel = GameObject.FindGameObjectWithTag("WaveMenu").GetComponent<Canvas>();
+        gameOverPanel = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>();
         nextWavePanel.enabled = false;
+        gameOverPanel.enabled = false;
         spawners = GameObject.FindGameObjectsWithTag("Spawner");
         playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
         NextWave();
@@ -38,43 +43,62 @@ public class WaveController : MonoBehaviour
         waveText.text = "Current wave: " + currentWave;
         remainingEnemies.text = "Enemies remaining: " + GameObject.FindGameObjectsWithTag("enemy").Length;
 
-        if(GameObject.FindGameObjectsWithTag("enemy").Length <= 0)
+        if (GameObject.FindGameObjectsWithTag("enemy").Length <= 0)
         {
             currentWave++;
             NextWave();
         }
-    }
 
-    void NextWave()
-    {
-        if (currentWave != 1)
+        if (GameObject.FindGameObjectsWithTag("Player").Length <= 0)
         {
             Time.timeScale = 0;
-            StartCoroutine(Countdown());
-        }
-
-        int totalEnemies = baseNumber * currentWave * playerCount;
-        int enemiesPerSpawner = totalEnemies / spawners.Length;
-
-        //Divide enemynumber by spawners
-        foreach (GameObject item in spawners)
-        {
-            item.GetComponent<SpawnController>().Spawn(enemiesPerSpawner);
+            gameOverPanel.enabled = true;
+            StartCoroutine(Reset());
         }
     }
 
-    IEnumerator Countdown()
-    {
-        nextWavePanel.enabled = true;
-        waveCount.text = "Wave " + currentWave + " incoming";
-
-        for (int i = 5; i > 0; i--)
+        void NextWave()
         {
-            countdown.text = "" + i;
-            yield return new WaitForSecondsRealtime(1);
+            if (currentWave != 1)
+            {
+                Time.timeScale = 0;
+                StartCoroutine(Countdown());
+            }
+
+            int totalEnemies = baseNumber * currentWave * playerCount;
+            int enemiesPerSpawner = totalEnemies / spawners.Length;
+
+            //Divide enemynumber by spawners
+            foreach (GameObject item in spawners)
+            {
+                item.GetComponent<SpawnController>().Spawn(enemiesPerSpawner);
+            }
         }
 
-        nextWavePanel.enabled = false;
-        Time.timeScale = 1;
-    }
+        IEnumerator Countdown()
+        {
+            nextWavePanel.enabled = true;
+            waveCount.text = "Wave " + currentWave + " incoming";
+
+            for (int i = 5; i > 0; i--)
+            {
+                countdown.text = "" + i;
+                yield return new WaitForSecondsRealtime(1);
+            }
+
+            nextWavePanel.enabled = false;
+            Time.timeScale = 1;
+        }
+
+        IEnumerator Reset()
+        {
+            for (int i = 5; i > 0; i--)
+            {
+                dedCountdown.text = "" + i;
+                yield return new WaitForSecondsRealtime(1);
+            }
+
+            Time.timeScale = 1;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0, UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
 }
