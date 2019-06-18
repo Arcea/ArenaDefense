@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class WaveController : MonoBehaviour
 {
     private int currentWave = 1;
+
     private GameObject[] spawners;
     private int playerCount;
 
-    public int baseNumber = 20;
+    public int baseNumber = 5;
     public Text waveText;
     public Text remainingEnemies;
 
@@ -44,7 +45,6 @@ public class WaveController : MonoBehaviour
         remainingEnemies.text = "Enemies remaining: " + (GameObject.FindGameObjectsWithTag("enemy").Length +
             GameObject.FindGameObjectsWithTag("FrenziedEnemy").Length);
         
-
         if(GameObject.FindGameObjectsWithTag("enemy").Length <= 0 && GameObject.FindGameObjectsWithTag("FrenziedEnemy").Length <= 0)
         {
             currentWave++;
@@ -75,7 +75,6 @@ public class WaveController : MonoBehaviour
 
         int totalEnemies = baseNumber * currentWave * playerCount;
         int enemiesPerSpawner = totalEnemies / spawners.Length;
-
         //Divide enemynumber by spawners
         foreach (GameObject item in spawners)
         {
