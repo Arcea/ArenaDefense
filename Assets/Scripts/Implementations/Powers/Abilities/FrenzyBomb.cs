@@ -12,6 +12,10 @@ public class FrenzyBomb : Power
 
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        if (currentTimeForCooldown >= Cooldown)
+        {
+            GameObject newPlaceable = Instantiate((GameObject)Resources.Load("EnemyHacking"), new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), this.transform.rotation);
+            currentTimeForCooldown = 0;
+        }
     }
 }
