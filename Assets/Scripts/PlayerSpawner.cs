@@ -10,7 +10,7 @@ public class PlayerSpawner : MonoBehaviour
     {
         //Debug.Log("asdhksadhals");
         List<Player> players = Assets.SceneTransfer.players.Where(p => p.GetController() != -1).ToList();
-        Debug.Log(players);
+        //Debug.Log(players);
         int x = 145;
         int i = 1;
         foreach (Player player in players)

@@ -127,7 +127,7 @@ public class EnemyController : MonoBehaviour
         {
             if (collision.gameObject.tag == "FrenziedEnemy")
             {
-                Debug.Log("Enemy hit Frenziedenemy");
+                //Debug.Log("Enemy hit Frenziedenemy");
                 gameObject.GetComponent<CombatManager>().TakeDamage(10);
             }
         }

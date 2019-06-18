@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("We're no strangers to love");
+        //Debug.Log("We're no strangers to love");
         if (collision.gameObject.tag == "enemy")
         {
             StartCoroutine(TakeDamage());

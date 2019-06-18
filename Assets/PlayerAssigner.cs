@@ -28,7 +28,7 @@ public class PlayerAssigner : MonoBehaviour
             }
 
             if (Input.GetButtonDown(joinString + i)){
-                Debug.Log(i);
+                //Debug.Log(i);
                 AssignController(i);
                 break;
             }

@@ -22,7 +22,7 @@ public class Pistol : BallisticWeapon
     void Update()
     {
         gameObject.SetActive(true);
-        Debug.Log(gameObject.activeInHierarchy);
+        //Debug.Log(gameObject.activeInHierarchy);
     }
 
     IEnumerator FireWeapon()
