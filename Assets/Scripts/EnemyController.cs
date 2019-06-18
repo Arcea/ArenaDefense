@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,9 +15,10 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent agent;
 
     public float rotationspeed = 15f;
+    private int failplayer = 0;
 
-    public Transform closestTarget;
-    private float closestDistance;
+    //public Transform closestTarget;
+    //private float closestDistance;
     private Vector3 velocity;
     public bool stunned;
 
@@ -31,8 +33,8 @@ public class EnemyController : MonoBehaviour
             targets.Add(players[i].GetComponent<Transform>());
          }
 
-        closestTarget = targets[0];
-        closestDistance = Vector2.Distance(transform.position, targets[0].position);
+        //closestTarget = targets[0];
+        //closestDistance = Vector2.Distance(transform.position, targets[0].position);
 
 
         agent = GetComponent<NavMeshAgent>();
@@ -45,18 +47,60 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = agent.velocity;
-        foreach (Transform target in targets)
+        Transform closestTarget = null;
+        float closestDistance = 0;
+
+        try
         {
-            float distance = Vector2.Distance(transform.position, target.position);
+            closestTarget = targets[failplayer];
+
+            Vector2 t1 = transform.position;
+            Vector2 t2 = targets[failplayer].position;
+
+            closestDistance = Vector2.Distance(t1, t2);
+        }
+        catch (Exception e)
+        {
+            failplayer++;
+            return;
+        }
+
+
+        velocity = agent.velocity;
+
+        for (int j = failplayer; j < targets.Count; j++)
+        {
+            try
+            {
+                targets[j].GetInstanceID();
+            }
+            catch (Exception e)
+            {
+                targets.RemoveAt(j);
+            }
+
+            if (object.ReferenceEquals(targets[j], null))
+            {
+                Debug.Log("Never gonna give you up");
+                targets.RemoveAt(j);
+                Debug.Log(targets.Count);
+                return;
+            }
+
+            float distance = Vector2.Distance(transform.position, targets[j].position);
 
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closestTarget = target;
+                closestTarget = targets[j];
             }
         }
 
+
+        if (object.ReferenceEquals(closestTarget, null))
+        {
+            return;
+        }
         //Rotate towards closest target
         Vector2 direction = closestTarget.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -65,12 +109,12 @@ public class EnemyController : MonoBehaviour
 
         if (stunned == false)
         {
-           agent.isStopped = false;
-           agent.SetDestination(closestTarget.transform.position);
+            agent.isStopped = false;
+            agent.SetDestination(closestTarget.transform.position);
         }
         else
         {
-           agent.isStopped = true;
+            agent.isStopped = true;
         }
     }
 

@@ -20,7 +20,7 @@ public class Informatica : PlayerClass
         this.Ultimate = _hacking;
     }
 
-    private void Start()
+    void Start()
     {
         _hacking = gameObject.AddComponent<Hacking>();
     }

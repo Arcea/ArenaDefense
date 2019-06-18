@@ -31,7 +31,7 @@ public class FrenzyTimedEffect : TimedEffect
         }
 
         gameObject.GetComponent<EnemyController>().targets = targets;
-        gameObject.GetComponent<EnemyController>().closestTarget = targets[0];
+        //gameObject.GetComponent<EnemyController>().closestTarget = targets[0];
         CancelInvoke();
         Destroy(this);
     }
