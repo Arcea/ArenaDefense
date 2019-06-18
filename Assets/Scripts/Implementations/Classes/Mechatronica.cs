@@ -19,4 +19,9 @@ public class Mechatronica : PlayerClass
         //this.Ability = _dash;
         this.Ultimate = _droneShield;
     }
-}
+
+    void Start()
+    {
+        _droneShield = gameObject.AddComponent<DroneShield>();
+    }
+}   

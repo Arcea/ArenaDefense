@@ -17,8 +17,7 @@ public abstract class Power : MonoBehaviour
     {
         IsReady = true;
     }
-
-
+    
     public abstract void Activate();
 
     void Start()
@@ -29,6 +28,6 @@ public abstract class Power : MonoBehaviour
     void Update()
     {
         currentTimeForCooldown += Time.deltaTime;
-        Debug.Log(currentTimeForCooldown + "CurrentTimeForCooldown");
+        Debug.Log(currentTimeForCooldown);
     }
 }
