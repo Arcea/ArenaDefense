@@ -73,27 +73,22 @@ public class EnemyController : MonoBehaviour
             try
             {
                 targets[j].GetInstanceID();
+                float distance = Vector2.Distance(transform.position, targets[j].position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestTarget = targets[j];
+                }
             }
             catch (Exception e)
             {
                 targets.RemoveAt(j);
-            }
-
-            if (object.ReferenceEquals(targets[j], null))
-            {
-                Debug.Log("Never gonna give you up");
-                targets.RemoveAt(j);
-                Debug.Log(targets.Count);
                 return;
+                
             }
+            
 
-            float distance = Vector2.Distance(transform.position, targets[j].position);
-
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestTarget = targets[j];
-            }
         }
 
 
