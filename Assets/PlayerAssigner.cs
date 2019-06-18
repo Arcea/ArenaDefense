@@ -19,7 +19,7 @@ public class PlayerAssigner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 1; i <= 8; i++)
+        for (int i = 1; i <= 16; i++)
         {
             if (controllers.Contains(i))
             {
