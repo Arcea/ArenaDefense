@@ -13,11 +13,6 @@ public abstract class Power : MonoBehaviour
 
     public PowerType Type { get; set; }
 
-    public Power()
-    {
-        IsReady = true;
-    }
-
     public abstract void Activate();
 
     void Start()

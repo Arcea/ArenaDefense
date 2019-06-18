@@ -24,6 +24,8 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(inputNumber);
+
         if (inputNumber == -1) return;
         if (Input.GetAxis("Horizontal_P" + inputNumber) > 0)
         {

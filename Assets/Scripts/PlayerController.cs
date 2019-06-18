@@ -127,9 +127,10 @@ public class PlayerController : MonoBehaviour
         GetComponentInChildren<PlayerClass>().GetComponentInChildren<Weapon>().Reload();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("enemy"))
+        Debug.Log("We're no strangers to love");
+        if (collision.gameObject.tag == "enemy")
         {
             StartCoroutine(TakeDamage());
         }
