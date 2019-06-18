@@ -13,11 +13,12 @@ public class Hacking : Power
     public Hacking()
     {
         this.Type = PowerType.Ultimate;
-        this.Cooldown = 10f; //TBD
+        this.Cooldown = 60f; //TBD
     }
 
     private void Start()
     {
+        currentTimeForCooldown = Cooldown;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         players = GameObject.FindGameObjectsWithTag("Player");
     }
@@ -29,9 +30,9 @@ public class Hacking : Power
 
     private IEnumerator ActivateUltimate()
     {
-        if (IsReady)
+        if (currentTimeForCooldown >= Cooldown)
         {
-            IsReady = false;
+            currentTimeForCooldown = 0;
             //Apply screen glitch
             var script = mainCamera.GetComponent<Kino.AnalogGlitch>();
             script.enabled = true;
@@ -58,9 +59,6 @@ public class Hacking : Power
                 var weapon = (player.GetComponentInChildren<Weapon>().GetComponent<MonoBehaviour>() as Weapon);
                 weapon.ModifyDamage(1 / damageMultiplier);
             }
-
-            yield return new WaitForSeconds(Cooldown);
-            IsReady = true;
         }
     }
 }
