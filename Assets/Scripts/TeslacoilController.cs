@@ -36,6 +36,7 @@ public class TeslacoilController : MonoBehaviour
         {
             if (Vector3.Distance(this.transform.position, g.transform.position) < 4f)
             {
+                GetComponent<AudioSource>().Play();
                 g.GetComponent<CombatManager>().TakeDamage(2f);
             }
         }
