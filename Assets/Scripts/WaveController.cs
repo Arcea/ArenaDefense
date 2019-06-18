@@ -15,8 +15,10 @@ public class WaveController : MonoBehaviour
 
     //Wave countdown variables; might need seperation
     private Canvas nextWavePanel;
+    private Canvas gameOverPanel;
     public Text waveCount;
     public Text countdown;
+    public Text deadcountdown;
     float countDownTime;
 
     //TODO: Add Score based on enemies
@@ -26,7 +28,9 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         nextWavePanel = GameObject.FindGameObjectWithTag("WaveMenu").GetComponent<Canvas>();
+        gameOverPanel = GameObject.FindGameObjectWithTag("DeadMenu").GetComponent<Canvas>();
         nextWavePanel.enabled = false;
+        gameOverPanel.enabled = false;
         spawners = GameObject.FindGameObjectsWithTag("Spawner");
         playerCount = GameObject.FindGameObjectsWithTag("Player").Length;
         NextWave();
@@ -45,6 +49,17 @@ public class WaveController : MonoBehaviour
             currentWave++;
             NextWave();
         }
+
+        else if (GameObject.FindGameObjectsWithTag("Player").Length <= 0 && Time.timeScale == 1)
+        {
+            DeadScene();
+        }   
+    }
+
+    void DeadScene()
+    {
+        Time.timeScale = 0;
+        StartCoroutine(Reset());
     }
 
     void NextWave()
@@ -78,5 +93,21 @@ public class WaveController : MonoBehaviour
 
         nextWavePanel.enabled = false;
         Time.timeScale = 1;
+    }
+
+    IEnumerator Reset()
+    {
+        gameOverPanel.enabled = true;
+
+        for (int i = 5; i > 0; i--)
+        {
+            deadcountdown.text = "" + i;
+            yield return new WaitForSecondsRealtime(1);
+        }
+
+        gameOverPanel.enabled = false;
+        Time.timeScale = 1;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0, UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 }
