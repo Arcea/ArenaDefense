@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mechatronica : PlayerClass
 {
     public Weapon _rifle = new Rifle();
-    private Power _dash = new Dash();
+    //private Power _dash = new Dash();
     private Power _droneShield = new DroneShield();
 
     public Mechatronica()
@@ -16,7 +16,7 @@ public class Mechatronica : PlayerClass
         this.Shield = 0f;
         this.Speed = 5f;
         this.Weapon = _rifle;
-        this.Ability = _dash;
+        //this.Ability = _dash;
         this.Ultimate = _droneShield;
     }
 }

@@ -6,7 +6,7 @@ public class TechnischeInformatica : PlayerClass
 {
     private Weapon _pistol = new Pistol();
     private Power _frenzy = new FrenzyBomb();
-    private Power _teamShield = new TeamShield();
+    //private Power _teamShield = new TeamShield();
 
     public TechnischeInformatica()
     {
@@ -16,7 +16,7 @@ public class TechnischeInformatica : PlayerClass
         this.Shield = 0f;
         this.Speed = 5f;
         this.Weapon = _pistol;
-        this.Ability = _frenzy;
-        this.Ultimate = _teamShield;
+        //this.Ability = _frenzy;
+        this.Ultimate = _frenzy;
     }
 }

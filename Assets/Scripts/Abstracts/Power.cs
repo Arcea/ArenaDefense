@@ -18,6 +18,7 @@ public abstract class Power : MonoBehaviour
         IsReady = true;
     }
 
+
     public abstract void Activate();
 
     void Start()

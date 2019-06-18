@@ -10,7 +10,7 @@ public abstract class PlayerClass : MonoBehaviour
     public float Shield { get; set; }
     public float Speed { get; set; }
     public Weapon Weapon { get; set; }
-    public Power Ability { get; set; }
+    //public Power Ability { get; set; }
     public Power Ultimate { get; set; }
 
     private float _currentHealth;
@@ -50,13 +50,14 @@ public abstract class PlayerClass : MonoBehaviour
         Speed *= modifier;
     }
 
-    public void ActivateAbility()
-    {
-        Ability.Activate();
-    }
+    //public void ActivateAbility()
+    //{
+    //    Ability.Activate();
+    //}
 
     public void ActivateUltimate()
     {
+        //Debug.Log(Ultimate.Cooldown);
         Ultimate.Activate();
     }
 }
