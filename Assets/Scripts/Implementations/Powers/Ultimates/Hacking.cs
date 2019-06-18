@@ -6,7 +6,7 @@ public class Hacking : Power
 {
     private GameObject mainCamera;
     private GameObject[] players;
-    private float damageMultiplier = 2;
+    private float damageMultiplier = 2f;
     private float glitchDuration = 1.5f;
     private float buffDuration = 10f;
 
@@ -40,6 +40,7 @@ public class Hacking : Power
             script.horizontalShake = 0.035f;
             script.colorDrift = 0.4f;
 
+            //Disable screen glitch
             yield return new WaitForSeconds(glitchDuration);
             script.enabled = false;
 
@@ -51,8 +52,6 @@ public class Hacking : Power
             }
 
             yield return new WaitForSeconds(buffDuration);
-            Debug.Log("Buff removed");
-
             //Remove team damage boost
             foreach (var player in players)
             {
