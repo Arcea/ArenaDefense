@@ -17,7 +17,7 @@ public class TeslacoilController : MonoBehaviour
     {
         spr = GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>("Teslacoil");
-        Destroy(this.gameObject, 10f);
+        Destroy(this.gameObject, lifeTime);
     }
 
     void Update()
