@@ -32,13 +32,13 @@ public class PlayerController : MonoBehaviour
     private Canvas menu;
     
 
-    public UnityEngine.UI.Slider healthSlider;
-    public UnityEngine.UI.Slider ammoSlider;
-    public UnityEngine.UI.Slider powerSlider;
+    private UnityEngine.UI.Slider healthSlider;
+    private UnityEngine.UI.Slider ammoSlider;
+    private UnityEngine.UI.Slider powerSlider;
 
-    public UnityEngine.UI.Text healthText;
-    public UnityEngine.UI.Text ammoText;
-    public UnityEngine.UI.Text powerText;
+    private UnityEngine.UI.Text healthText;
+    private UnityEngine.UI.Text ammoText;
+    private UnityEngine.UI.Text powerText;
 
     private int uiXPosition;
     
